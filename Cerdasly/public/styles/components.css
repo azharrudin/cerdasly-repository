@@ -1,0 +1,56 @@
+/* input group addon for bootstrap form */
+.cps-input-group .input-group-addon {
+    background-color: white;
+}
+.cps-input-group input {
+    border-left: none;
+    border-color: #ccc;
+}
+.cps-input-group input:hover {
+    border-color: #ccc;
+    box-shadow: none;
+}
+.cps-input-group input:focus {
+    border-color: #ccc;
+    box-shadow: none;
+}
+
+.cps-img-container{
+    position:relative;
+    display:inline-block;
+}
+.cps-img-container .cps-overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    opacity:0;
+    transition:opacity 500ms ease-in-out;
+}
+.cps-img-container:hover .cps-overlay{
+    opacity: 1;
+}
+.cps-overlay span {
+    position:absolute;
+    top:50%;
+    left:51.5%;
+    transform:translate(-50%,-50%);
+    color:#fff;
+}
+.cps-btn {
+    border-radius: 15px;
+    max-width: 100%;
+}
+.cps-photo-comment-icon {
+    width: 30;
+    height: 30;
+    border-radius: 100%;
+    
+}
+.btn-rad {
+    border-radius: 15px;
+}
+.btn {
+    border-radius: 15px; 
+}

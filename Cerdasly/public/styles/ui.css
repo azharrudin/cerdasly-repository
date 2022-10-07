@@ -1,0 +1,153 @@
+.homepage-left-sidebar {
+    border: 1px solid rgb(230, 230, 230);
+    padding: 10px;
+    background: white;
+}
+.ui_homepage_question_container {
+    position: relative;
+    z-index: 1; 
+    word-wrap: break-word;
+}
+.ui_question_layout_left_sidebar {
+    word-wrap: break-word;
+    padding: 10px;
+    margin-right: 5px;
+    background: white;
+    border-radius: 1px;
+    margin-top: 3px;
+}
+.ui_question_answer_box {
+    background: none;
+    border: none;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+.ui_image_attachment {
+    border: 1px solid  rgb(230, 230, 230);
+    border-radius: 15px;
+    max-width: 100%;
+    width: auto;
+    height:auto;
+    max-height: 300px;
+}
+.ui_question_search {
+    background: white;
+    border-bottom: 2px solid rgb(230, 230, 230);
+    overflow: auto;
+    padding: 5px;
+    padding-bottom: 0px;
+}
+
+.ui_navbar {
+    background: white;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    padding-left: 0px;
+    padding-top: 5px;
+    padding-right: 6px;
+    overflow: auto;
+}
+.ui_navbar_right_side {
+    margin-right: 1%;
+    max-height: 100%;
+    margin-top:0px;
+    float: right;
+    text-decoration: none;
+    padding-top: 1px; 
+}
+.ui_navbar_notification_bell {
+    float: right;
+    font-size: 25px;
+    margin-top: 4px;
+    margin-right: 5px;
+}
+.ui_navbar_notification_badge {
+    position: absolute;
+    margin-left: 12px;
+    background: #D9534F;
+}
+.ui_circled_image-x35 {
+    border-radius: 100%;
+    max-width: 35px;
+}
+.ui_circled_image-x30 {
+    border-radius: 100%;
+    max-width: 30px;
+    height: 30px;
+}
+.ui_profile_icon-x30 {
+    border-radius: 100%;
+    max-width: 30px;
+}
+.ui_ask_guide_alert {
+    border: 2px solid rgb(230, 230, 230);
+    padding: 6px;
+    border-radius: 5px;
+    background: white;
+}
+.ui_circular_wrapper {
+    display: flex;
+    min-width: 100%;
+    flex-direction: row;
+    align-items:center;
+}
+.ui_circular_image-x35 {
+    width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+} 
+.ui_circular_image-x35 img {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+} 
+.ui_circular_image-x75 {
+    width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+} 
+.ui_circular_image-x75 img {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+} 
+.ui_circular_image-x30 {
+    width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  margin-right: 5px;
+} 
+.ui_circular_image-x30 img {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+} 
