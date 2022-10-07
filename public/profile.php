@@ -160,6 +160,7 @@ if(strlen($core->getImgByUsername($_GET["user"])) < 1 && isset($_COOKIE["email"]
                         src="<?= $core->getImgByUsername($_GET["user"]); ?>"
                         height="100"
                         alt="<?= strip_tags($_GET['user']); ?>"
+                        loading="lazy" 
                         style="border-radius: 50%;max-width: 100px;"
                     />
     <?php               
