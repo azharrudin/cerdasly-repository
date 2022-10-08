@@ -150,7 +150,7 @@
                     <div class="card-question">
                         <div class="ui_circular_wrapper">
                             <div class="ui_circular_image-x30">
-                                <img onclick="window.location = '/profile/<?= $topAnswer['username'] ?>'" src="<?= $core->getImgByUsername($topAnswer['username']); ?>" class="ui_circled_image-x30">
+                                <img onclick="window.location = '/profile/<?= $topAnswer['username'] ?>'" src="<?= $core->getImgByUsername($topAnswer['username']); ?>" class="ui_circled_image-x30" loading="lazy">
                             </div>
                             <span class="text-muted" onclick="window.location = '/profile/<?= $topAnswer['username'] ?>'">
                             <?= $core->getRealnameByUsername($topAnswer["username"]); ?> &#183 
@@ -172,7 +172,7 @@
                 <br>
                 <div class="ui_circular_wrapper">
                         <div class="ui_circular_image-x35">
-                            <img onclick="window.location = '/profile/<?= $l['username'] ?>'" src="<?= $core->getImgByUsername($l['username']); ?>" class="ui_circled_image-x35">
+                            <img onclick="window.location = '/profile/<?= $l['username'] ?>'" src="<?= $core->getImgByUsername($l['username']); ?>" class="ui_circled_image-x35" loading="lazy">
                         </div>
                     <span class="text-muted"><?= $l["username"]; ?></span>
 
