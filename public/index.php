@@ -134,7 +134,7 @@
                 if($l["attachment"] != "none"):
         ?>            
                     <center>
-                    <img src="/data/question_attachment/<?= $l["attachment"] ?>" alt="Lampiran" class="ui_image_attachment">
+                    <img src="/data/question_attachment/<?= $l["attachment"] ?>" alt="Lampiran" class="ui_image_attachment" loading="lazy">
                             <p style="clear: both;"></p>
                     </center>
         <?php
