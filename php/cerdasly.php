@@ -138,8 +138,8 @@ class Core {
     function deleteQuestion($questionid){
         $m = $this->getAnswers($questionid);
         $questionid = $this->m->quote($questionid);
-        if(file_exists(CRDSLY_ATTACHMENT_QUESTIONS_DIR.$questionid.".png")){
-            @unlink(CRDSLY_ATTACHMENT_QUESTIONS_DIR.$questionid.".png");
+        if(file_exists(CRDSLY_ATTACHMENT_QUESTIONS_DIR.$questionid)){
+            @unlink(CRDSLY_ATTACHMENT_QUESTIONS_DIR.$questionid);
         }
         $this->m->query("DELETE FROM questions WHERE id LIKE $questionid;");
         foreach($m as $c){

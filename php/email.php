@@ -3,9 +3,9 @@
 // Pengaturan Email jangan diganti
 // Kecuali sudah diperintahkan oleh kak Azhar
 // ------------------------------------------
-$smtp     = "smtp.mail.yahoo.com";
-$email    = "herobrinepe404@yahoo.com";
-$password = "hgzkbwixxnxgqvrq";
+$smtp     = "mail.cerdasly.com";
+$email    = "admin@cerdasly.com";
+$password = "azharrudin595";
 $sender   = "Admin Cerdasly";
 // ------------------------------------------
 require_once(__DIR__."/../vendor/autoload.php");
@@ -18,6 +18,7 @@ require_once(__DIR__ . "/../vendor/phpmailer/phpmailer/src/Exception.php");
 require_once(__DIR__ . "/../vendor/phpmailer/phpmailer/src/PHPMailer.php");
 require_once(__DIR__ . "/../vendor/phpmailer/phpmailer/src/SMTP.php");
 function sendVerification($to, $code, $message = ""){
+
     if(strlen($message) == 0){
         $message     = "Hai, selamat datang di Cerdasly, untuk mengaktifkan akun yang sedang dibuat, anda dapat menggunakan kode verifikasi: <h4><tt>$code</tt></h4>.";
         $message_alt = "Hai, selamat datang di Cerdasly, untuk mengaktifkan akun yang sedang dibuat, anda dapat menggunakan kode verifikasi: $code.";
@@ -34,12 +35,13 @@ function sendVerification($to, $code, $message = ""){
         $mail->isSMTP();
         $mail->Host       = $smtp;
         $mail->SMTPAuth   = true;
-        $mail->Port       = 587;
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 465;
+        $mail->SMTPSecure = "ssl";
         $mail->Username   = $email;
         $mail->Password   = $password; 
-        $mail->setFrom($email, $sender);
-        $mail->addAddress($to, 'Pengguna Baru');
+        $mail->From       = $email;
+        $mail->FromName   = "Admin Cerdasly";
+        $mail->addAddress($to, 'Pengguna Cerdasly');
         $mail->addReplyTo($email, $sender);
         $mail->IsHTML(true);
         $mail->Subject = "Selamat datang di Cerdasly - Ayo verifikasikan akunmu";
