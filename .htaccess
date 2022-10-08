@@ -11,8 +11,8 @@ ReWriteRule ^/?profile/(.*)$ /public/profile.php?user=$1 [L]
 ReWriteRule ^/?limit/(.*)$ /public/index.php?limit=$1 [L]
 ReWriteRule ^/?publicapi/(.*)$ /public/api/publicapi.php?$1 [L]
 
-ReWriteRule ^/?rfinduser$ /public/recovery/finduser.php [L]
-ReWriteRule ^/?rresetpass$ /public/recovery/resetpass.php [L]
+ReWriteRule ^/?rfinduser$ /public/finduser.php [L]
+ReWriteRule ^/?rresetpass$ /public/resetpass.php [L]
 
 ReWriteRule ^/?userimg/(.*) /data/userimg/$1 [L]
 ReWriteRule ^/?templates/(.*) /public/templates/$1 [L]
