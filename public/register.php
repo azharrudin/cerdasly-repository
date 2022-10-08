@@ -231,8 +231,8 @@
 
         }
         function username_on(){
-            var re = /^[0-9A-Za-z\_]+$/;
-            var v = `Minimal 4 karakter dan maksimal 20 karakter, juga hanya angka, garis bawah dan spasi di perbolehkan`
+            var re = /^[0-9a-z\_]+$/;
+            var v = `Minimal 4 huruf dan maksimal 20 huruf kecil, hanya angka dan garis bawah di perbolehkan`
             
             if($("#username").val().length == 0){
                 $("#husername").addClass("text-danger")
