@@ -5,8 +5,8 @@ function navigationBar($user, $space = true){
     $core                     = new Core();
     $profile_image            = $core->getImgByUsername($user);
     $profile_image            = strlen($profile_image) > 0 
-    ? "<img onclick=\"window.location = '/profile/'\" src='$profile_image' height=35 style='border-radius: 100%;max-width: 35px;object-fit: cover;'>" 
-    : "<button class=\"btn btn-primary btn-sm\">Masuk</button>";
+    ? "<img onclick=\"window.location = '/profile/'\" src='$profile_image' height=35 style='border-radius: 100%;max-width: 35px;object-fit: cover;' loading='lazy'>" 
+    : "</a><button class=\"btn btn-primary btn-sm\">Masuk</button>";
     $unreadNotificationsTotal = count($core->getUnreadNotifications($user)); 
     $space = $space ? '<div style="margin-top: 50px;"></div>' : "";
     return <<<EOF
