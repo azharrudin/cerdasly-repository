@@ -260,7 +260,10 @@
                 $("#husername").html("Sedang memeriksa username...")
                 $.ajax({
                     url: "/profile/"+$("#username").val(),
-                    method: "get",
+                    method: "POST",
+                    data: {
+                        request_check_only: true
+                    },
                     complete: function(xhr, textStatus){
                         if(xhr.status == 200){
                             $("#husername").html("<p class='bi bi-x-circle'>Username tidak tersedia</p>")

@@ -18,7 +18,7 @@ else {
     $user_realname  = $core->getRealnameByUsername($_GET["user"]); 
     $user_about     = $core->getAboutByUsername($_GET["user"]);
 }
-if(strlen($core->getImgByUsername($_GET["user"])) < 1 && isset($_COOKIE["email"])){
+if(strlen($core->getImgByUsername($_GET["user"])) < 1 && isset($_COOKIE["email"]) && !isset($_POST["request_check_only"])){
     header("Location: /profile/".$core->getUsername($_COOKIE["email"]));
 }
 //------------------------------------------------------------------
