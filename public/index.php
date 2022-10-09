@@ -70,7 +70,6 @@
 </head>
 <?php
     $list = $core->getRecentQuestion("0", $limit);
-    var_dump($list);
     if(isset($_GET["search"]))
         $list = $core->searchQuestion(buildregex($_GET["search"]), "0", $limit);
 ?>
