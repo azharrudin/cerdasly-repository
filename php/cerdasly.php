@@ -297,7 +297,6 @@ class Core {
     }
     function getRecentQuestion($a, $b){
         $r = $this->m->query("SELECT * FROM questions ORDER BY  STR_TO_DATE(`postdate`,'%d-%m-%y %h:%i:%s') DESC LIMIT $a, $b;");
-        var_dump($r);
         return $r->fetchAll();
     }
     function getRecentComments($id, $a){
