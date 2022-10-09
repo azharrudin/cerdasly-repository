@@ -5,6 +5,11 @@ require_once(__DIR__."/components/navbar.php");
 //------------------------------------------------------------------
 $core     = new Core();
 $notlogin = false;
+if(isset($_GET["logout"])){
+    unset($_COOKIE["email"]);
+    unset($_COOKIE["pass"]);
+    header("Location: /");
+}
 if(strlen($core->getImgByUsername($_GET["user"])) < 1 ){
     http_response_code(404);
     $notlogin = '
@@ -280,7 +285,7 @@ if(strlen($core->getImgByUsername($_GET["user"])) < 1 && isset($_COOKIE["email"]
                         <p class="form-text link-primary"  style="text-align:left;width: 100%;">diperlukan untuk mengubah pengaturan anda</p>
                     </div>
                     <button type="submit" class="btn btn-danger" style="width: 100%;">Simpan</button><br>
-                    <a class="link-primary" style="margin-top: 8px;">Keluar dari akun ini</a><br>
+                    <a class="link-primary" style="margin-top: 8px;" href="?">Keluar dari akun ini</a><br>
                     <a class="link-primary" style="margin-top: 5px;" onclick="deleteaccountdialog()">Saya ingin menghapus akun</a>
                 </form>
             </div>   
