@@ -45,7 +45,7 @@
          */
         function getComments($answerid, $limit_a = 0, $limit_b = 10){
             $answerid = $this->m->quote($answerid);
-            $r = $this->m->query("SELECT * FROM comments WHERE answerid LIKE $answerid ORDER BY   STR_TO_DATE(`postdate`,\"%d-%m-%y %h:%i:%s\") DESC LIMIT $limit_a, $limit_b;");
+            $r = $this->m->query("SELECT * FROM comments WHERE answerid LIKE $answerid ORDER BY   STR_TO_DATE(`postdate`,\"%d-%m-%y %H:%i:%s\") DESC LIMIT $limit_a, $limit_b;");
             $g = $r->fetchAll();
             if(gettype($g) == "boolean")
                 return array();

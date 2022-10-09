@@ -5,7 +5,7 @@ require_once(__DIR__."/core/comment.php");
 require_once(__DIR__."/core/account.php");
 require_once(__DIR__."/functions.php");
 require_once(__DIR__."/../config/config.php");
-$date        = gmdate("d-m-y h:i:s");
+$date        = gmdate("d-m-y H:i:s");
 $userimgdir  = __DIR__."/../data/userimg/";
 function generator( $length, $chars = "0123456789"){
     $size = strlen($chars);
@@ -186,7 +186,7 @@ class Core {
         $this->m->query("UPDATE notifications SET readed=1 WHERE username LIKE ".$this->m->quote($username));
     }
     function getAllNotifications($username, $limit_from = 0, $limit_to = 15){
-        $r = $this->m->query("SELECT * FROM notifications WHERE username LIKE '$username' ORDER BY STR_TO_DATE(`postdate`,\"%d-%m-%y %h:%i:%s\") ASC LIMIT $limit_from, $limit_to;");
+        $r = $this->m->query("SELECT * FROM notifications WHERE username LIKE '$username' ORDER BY STR_TO_DATE(`postdate`,\"%d-%m-%y %H:%i:%s\") ASC LIMIT $limit_from, $limit_to;");
         $g = $r->fetchAll();
         if(gettype($g) == "boolean")
             return array();
@@ -296,7 +296,7 @@ class Core {
         return $r->fetchAll();
     }
     function getRecentQuestion($a, $b){
-        $r = $this->m->query("SELECT * FROM questions ORDER BY  STR_TO_DATE(`postdate`,'%d-%m-%y %h:%i:%s') DESC LIMIT $a, $b;");
+        $r = $this->m->query("SELECT * FROM questions ORDER BY  STR_TO_DATE(`postdate`,'%d-%m-%y %H:%i:%s') DESC LIMIT $a, $b;");
         return $r->fetchAll();
     }
     function getRecentComments($id, $a){
