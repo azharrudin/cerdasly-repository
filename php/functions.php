@@ -78,8 +78,8 @@ function imgcrop($imgSrc){
  *-------------------------------------------------------------------------------
  */
 function getndate($datetime, $full = false) {
-    $now  = DateTime::createFromFormat("d-m-y h:i:s", gmdate("d-m-y h:i:s"));
-    $ago  = DateTime::createFromFormat("d-m-y h:i:s", $datetime);
+    $now  = DateTime::createFromFormat("d-m-y H:i:s", gmdate("d-m-y H:i:s"));
+    $ago  = DateTime::createFromFormat("d-m-y H:i:s", $datetime);
     $diff = $now->diff($ago);
     $diff->w  = floor($diff->d / 7);
     $diff->d -= $diff->w * 7;

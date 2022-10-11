@@ -66,6 +66,9 @@
         a:hover {
             text-decoration:none;
         }
+        .ui_name_label {
+                margin-left: 5px;
+            }
     </style>
 </head>
 <?php
@@ -174,7 +177,7 @@
                         <div class="ui_circular_image-x35">
                             <img onclick="window.location = '/profile/<?= $l['username'] ?>'" src="<?= $core->getImgByUsername($l['username']); ?>" class="ui_circled_image-x35" loading="lazy">
                         </div>
-                    <span class="text-muted"><?= $l["username"]; ?></span>
+                    <span class="text-muted ui_name_label"><?= $l["username"]; ?></span>
 
                     <input type="submit" class="btn btn-danger" value="Jawab" name="answer" style="margin-left: auto;" onclick="location.href='/question/<?= $l["id"]; ?>'">
                 </div>
