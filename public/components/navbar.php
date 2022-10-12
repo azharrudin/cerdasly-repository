@@ -9,7 +9,7 @@ function navigationBar($user, $space = true){
     : "";
     $login_button             =  strlen($profile_image) > 0 ? "": "<button style=\"float: right\" class=\"btn btn-primary btn-sm\">Masuk</button>";
     $unreadNotificationsTotal = count($core->getUnreadNotifications($user)); 
-    $space = $space ? '<div style="margin-top: 50px;"></div>' : "";
+    $space = $space ? '<div style="margin-top: 46px;"></div>' : "";
     return <<<EOF
             <div class="fixed-top ui_navbar">
                 <img
@@ -32,6 +32,11 @@ function navigationBar($user, $space = true){
                 </div>          
             </div>
             $space
+            <div class="lay-mobile-only" style="overflow-x: scroll;background: white;margin-bottom: 4px;">
+                <button style="background: none;border: 1px solid #F0F0F0;width: 25vw;margin:0;padding:0"><h4><span class="bi bi-trophy"></span></h4></button>
+                <button style="background: none;border: 1px solid #F0F0F0;width: 25vw;margin:0;padding:0"><h4><span class="bi bi-list"></span></h4></button>
+
+            </div>
         EOF;
       
     }
