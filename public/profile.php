@@ -5,6 +5,7 @@ require_once(__DIR__."/components/navbar.php");
 //------------------------------------------------------------------
 $core     = new Core();
 $notlogin = false;
+$user = "";
 if(isset($_GET["logout"])){
     unset($_COOKIE["email"]);
     unset($_COOKIE["pass"]);
