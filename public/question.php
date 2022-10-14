@@ -159,7 +159,7 @@ if(isset($_GET["id"]) && $question != false){
                 else {
                     $attachment_remove  = isset($_POST["attachment_remove"]) && $_POST['attachment_remove'] == "1"  ? true : false; 
                     $attachment_try     = $attachment->upload_answer_attachment($sfk["id"]);
-                    $attachment_success = !is_array($attachment_try) ? $attachment_try : "none";
+                    $attachment_success = !is_array($attachment_try) ? $attachment_try : $sfk["attachment"];
                     $attachment_isarray = is_array($attachment_try);
                     if($attachment_remove){
                         $attachment->deleteAnswerAttachment($Core->getAnswerByID($sfk["id"])["attachment"]);
