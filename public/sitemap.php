@@ -12,9 +12,11 @@ $url.= $_SERVER['HTTP_HOST'];
 $core  = new Core();
 $links = $core->getRecentQuestion(0, 30);
 foreach($links as $data){
+    $m = DateTime::createFromFormat("d-m-y H:i:s", $data['postdate']);
+    $m = $m->format(DATE_W3C);
     echo "<url>";
     echo "<loc>$url/question/".$data['id']."</loc>";
-    echo "<lastmod>". date("20d-m-y H:i:s", strtotime($data["postdate"]))."</lastmod>";
+    echo "<lastmod>$m</lastmod>";
     echo "<priority>1.00</priority>";
     echo "</url>";
 }
