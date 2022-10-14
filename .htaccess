@@ -1,6 +1,8 @@
 DirectoryIndex /public/index.php
 RewriteEngine on
 
+RewriteRule ^sitemap\.xml/?$ /public/sitemap.php
+
 ReWriteRule ^/?question/(.*)$ /public/question.php?id=$1 [L]
 ReWriteRule ^/?comments/(.*)$ /public/comments.php?id=$1 [L]
 ReWriteRule ^/?search/(.*)/limit/(.*)$ /public_html/index.php?search=$1&limit=$2 [L]
