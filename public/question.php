@@ -599,7 +599,7 @@ if(isset($_GET["id"]) && $question != false){
             });
             d = {}
         function submitanswer(){
-            if($($("#summernote").summernote("code")).text().length <= 20){
+            if($("<p>"+$("#summernote").summernote("code")+"</p>").text().length <= 20){
                 Popup.fire({
                     text: 'Jawaban anda terlalu pendek karena jawaban setidaknya harus memiliki lebih dari 20 karakter',
                 });
