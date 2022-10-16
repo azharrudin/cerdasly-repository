@@ -65,7 +65,7 @@
                     <input type="password" class="form-control" style="border-right: none;" id="password" placeholder="Password akun anda" name="login_password">
                     <span style="border-left: none; " class="input-group-addon" id="ui_view_password" onclick="viewPassword()" ><span class="bi bi-eye-slash" id="ui_eye_icon"></span></span>
                 </div>
-                <small class="text-primary"><a href="/recovery/password">Lupa password akun saya</a></small>
+                <small class="text-primary"><a href="/resetpass">Lupa password akun saya</a></small>
             </div>
             <button type="submit" class="btn btn-danger cps-btn" style="width: 100%;border-radius: 15px;">Masuk</button><br>
             <center  style="margin-top: 11px;"><small>Belum punya akun? <a class="link-primary" href="/register"> Ayo daftar disini</a></small></center>
