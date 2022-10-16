@@ -29,6 +29,7 @@ if(isset($_GET["id"]) && $question != false){
     if(!isset($best_answer["answer"])) $best_answer["answer"] = "Pertanyaan ini belum dijawab";
 }
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <title><?= substr(strip_tags($question["title"]), 0, 50); ?></title>
