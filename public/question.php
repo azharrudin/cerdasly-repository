@@ -95,9 +95,11 @@ if(isset($_GET["id"]) && $question != false){
                 background-color: white;
                 border: 2px solid rgb(230, 230, 230);
             }
-            .other_question {
+            .other-question {
                 max-width: 100%;
                 position: relative;
+                text-decoration: dotted;
+                margin-bottom:10px;
             }
         </style>
     </head>
@@ -215,7 +217,7 @@ if(isset($_GET["id"]) && $question != false){
                 }
     ?>
     
-        <div class="side-left ui_question_layout_left_sidebar" >
+        <div class="side-left ui_question_layout_left_sidebar" style="border-radius: 6px;">
             <div id="ui_other_question">
                 <h4>Pertanyaan Baru</h4>
     <?php
@@ -225,7 +227,7 @@ if(isset($_GET["id"]) && $question != false){
             if(strlen($r["title"]) > 50){
                 $rAnswer .= "...";
             }
-            echo "<div><a href='/question/".$r["id"]."' class='text-muted' >".strip_tags(trim($rAnswer))."</a></div>";
+            echo "<div class='other-question'><a href='/question/".$r["id"]."' class='text-muted other-question'>".strip_tags(trim($rAnswer))."</a></div>";
         }
     ?>
             </div>
@@ -433,7 +435,7 @@ if(isset($_GET["id"]) && $question != false){
                 endforeach;    
             endif; 
     ?>
-        </div><div class="lay-mobile-only container" id="ui_mobile_only_other_question" style="word-wrap: break-word;">
+        </div><div class="lay-mobile-only list-card-x" id="ui_mobile_only_other_question" style="word-wrap: break-word;border-radius: 6px;">
 
 </div></div>
         
