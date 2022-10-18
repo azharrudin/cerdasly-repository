@@ -95,7 +95,10 @@ if(isset($_GET["id"]) && $question != false){
                 background-color: white;
                 border: 2px solid rgb(230, 230, 230);
             }
-            
+            .other_question {
+                max-width: 100%;
+                position: relative;
+            }
         </style>
     </head>
     <body>
@@ -212,8 +215,9 @@ if(isset($_GET["id"]) && $question != false){
                 }
     ?>
     
-        <div class="side-left ui_question_layout_left_sidebar">
-        <h4>Pertanyaan Baru</h4>
+        <div class="side-left ui_question_layout_left_sidebar" >
+            <div id="ui_other_question">
+                <h4>Pertanyaan Baru</h4>
     <?php
         $recent = $Core->getRecentQuestion(0, 6);
         foreach($recent as $r){
@@ -221,10 +225,10 @@ if(isset($_GET["id"]) && $question != false){
             if(strlen($r["title"]) > 50){
                 $rAnswer .= "...";
             }
-            echo "<div><a href='/question/".$r["id"]."' class='text-muted' >".trim($rAnswer)."</a></div>";
+            echo "<div><a href='/question/".$r["id"]."' class='text-muted' >".strip_tags(trim($rAnswer))."</a></div>";
         }
-        
     ?>
+            </div>
         </div>
         <div class="side-right" id="sideright">
             <div class="question-box">
@@ -285,7 +289,7 @@ if(isset($_GET["id"]) && $question != false){
         </div>
         <!-- bagian kode html tambah jawaban -->
         <div id="kotak-jawab" class="list-card-x mb-2">
-            <form action="#" method="post" id="jawaban" class="ui_question_answer_box">
+            <form action="#" method="post" id="jawaban" class="ui_question_answer_box" >
                 <textarea id="summernote" name="ask" ><?= isset($currentanswer["answer"]) ? $currentanswer["answer"] : ""; ?></textarea>
                 <p class="text-muted">Gambar (.png/.jpg/.jpeg):</p> <input type="file" name="upload_answer_attachment" id="ui_attachment">
                 <div class="custom-control custom-checkbox" style="display: flex;">
@@ -429,9 +433,13 @@ if(isset($_GET["id"]) && $question != false){
                 endforeach;    
             endif; 
     ?>
-        </div></div></div><textarea id="dummy"></textarea>
+        </div><div class="lay-mobile-only container" id="ui_mobile_only_other_question" style="word-wrap: break-word;">
+
+</div></div>
+        
+        </div><textarea id="dummy"></textarea>
         <script>
-            
+            $("#ui_mobile_only_other_question").html($("#ui_other_question").html())
             document.getElementById('attachment_remove').checked = true 
             document.getElementById('ui_attachment').disabled = true 
         $("#dummy").hide()
