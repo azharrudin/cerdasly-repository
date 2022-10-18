@@ -24,6 +24,7 @@
                     foreach($questions as $qs){
                         $this->deleteQuestion($qs["id"]);
                     }
+                    $this->m->query("DELETE FROM notifications WHERE username LIKE ".$username);
                     $this->m->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     return true;
                 } catch(PDOException $e) {
