@@ -1,16 +1,23 @@
-<h1>
-    
+<html>
+    <head>
+        <title>Cerdasly - Masuk</title>
+        <meta name="description" content="Ayo login Cerdasly untuk mengakses banyak soal dan berdiskusi tugas sekolah kamu">
+        <meta name="title" content="Cerdasly - Masuk">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/styles/styles.css" rel="stylesheet">
+        <link href="/styles/components.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">    
+        <style>
+            a:hover {
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+       <div class="container">
 
-    apa yang terjadi jika saya menemukan bug dan kerentanan di situs ini?
-    <b><i>email kami, mungkin kami dapat memberi anda reward jika anda beruntung, jika anda mencoba meretas situs ini kami dapat membawa perkara ini ke hukum</i></b>
-    apa yang terjadi jika saya melanggar peraturan?
-    <b><i>instant banned,</i> jika kami mengetahui anda melanggar peraturan kami akan menghapus akun anda dan melakukan ban terhadap email anda secara permanen, tidak ada alasan</b>
-    apa saya dapat melaporkan pengguna yang melanggar aturan?
-    <b>ya, cukup tekan laporkan anda akan diarahkan ke email pelaporan, kirim screenshot ke email kami dan username pengguna tersebut</b>
-    apa mengunggah file (foto profil, jawaban, dan pertanyaan) dibatasi besar dan jumlah file nya?
-    <b>iya kami membatasi agar tidak ada pengguna tidak bertanggung jawab yang melakukan spam di situs kami, maksimal file yang diunggah adalah sebesar 4mb</b>
-    apa saya dapat menggunakan jawaban dari pengguna untuk keperluan saya pribadi?
-    <b>semua jawaban pengguna termasuk jawaban anda berada dibawah lisensi CC-BY-SA 4.0 artinya anda bebas untuk salin dan redistribusi di berbagai format dan media tapi harus disertai atribusi yang layak kepada penjawab</b><br>
-    ada hal yang ingin ditanyakan 
-    
-</h1>
+       </div> 
+    </body>
+</html>

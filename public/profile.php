@@ -14,8 +14,8 @@ if(isset($_GET["logout"])){
 if(strlen($core->getImgByUsername($_GET["user"])) < 1 ){
     http_response_code(404);
     $notlogin = '
-    <div style="height: 100%;">
-        <div class="container alert alert-danger" style="margin-bottom: 0px;text-align: center;position: relative;top: 50%;transform: translateY(-50%);">
+    <div style="height: 100%;margin-top: 1vh">
+        <div class="container alert alert-danger" style="margin-bottom: 0px;text-align: center;">
             <p>Akun tidak ditemukan</p>
         </div>
     </div>';
@@ -24,7 +24,7 @@ else {
     $user_realname  = $core->getRealnameByUsername($_GET["user"]); 
     $user_about     = $core->getAboutByUsername($_GET["user"]);
 }
-if(strlen($core->getImgByUsername($_GET["user"])) < 1 && isset($_COOKIE["email"]) && !isset($_POST["request_check_only"])){
+if(strlen($core->getImgByUsername($_GET["user"])) < 1 && isset($_COOKIE["email"]) && !isset($_POST["request_check_only"]) && strlen($_GET["user"]) < 1){
     header("Location: /profile/".$core->getUsername($_COOKIE["email"]));
 }
 //------------------------------------------------------------------
@@ -32,7 +32,7 @@ if(strlen($core->getImgByUsername($_GET["user"])) < 1 && isset($_COOKIE["email"]
 <!doctype html>
 <html>
     <head>
-        <title>Profil <?=  $user_realname ?></title>
+        <title>Profil <?=  @$user_realname ? $user_realname : "- Tidak Ditemukan"?></title>
         <!--- favicon dan thumbnail website --->
         <meta content="<?= $user_about; ?>" name="description"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

@@ -34,10 +34,10 @@ function navigationBar($user, $space = true){
             </div>
             $space
             <div class="lay-mobile-only" style="overflow-x: scroll;background: white;margin-bottom: 4px;height: fixed;">
-                <button style="background: none;border: none;width: 24vw;margin:0;padding:0"><h4><a><span class="bi bi-house-door"></span></a></h4></button>
-                <button style="background: none;border: none;width: 24vw;margin:0;padding:0"><h4><span class="bi bi-trophy"></span></h4></button>
-                <button style="background: none;border: none;width: 24vw;margin:0;padding:0"><h4><span class="bi bi-newspaper"></span></h4></button>
-                <button style="background: none;border: none;width: 24vw;margin:0;padding:0"><h4><span class="bi bi-search"></span></h4></button>
+                <button class="ui_mobile_navigation"><h4><a href="/" class="text-muted"><span class="bi bi-house-door"></span></a></h4></button>
+                <button class="ui_mobile_navigation"><h4><a href="/" class="text-muted"><span class="bi bi-trophy"></span></a></h4></button>
+                <button class="ui_mobile_navigation"><h4><a class="text-muted"><span class="bi bi-newspaper"></span></a></h4></button>
+                <button class="ui_mobile_navigation"><h4><a><span class="bi bi-search"></span></a></h4></button>
             </div>
         EOF;
       

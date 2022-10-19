@@ -440,6 +440,18 @@ if(isset($_GET["id"]) && $question != false){
 </div></div>
         
         </div><textarea id="dummy"></textarea>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6098201334142651"
+     crossorigin="anonymous"></script>
+<!-- Unit Code. A10B0 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6098201334142651"
+     data-ad-slot="7867008779"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
         <script>
             $("#ui_mobile_only_other_question").html($("#ui_other_question").html())
             document.getElementById('attachment_remove').checked = true 
@@ -643,7 +655,11 @@ if(isset($_GET["id"]) && $question != false){
             
         }
         </script>
-        <?php else: ?>
+        <?php 
+            else: 
+                http_response_code(404);
+        ?>
+        
             <div class="container">
                 <div class="lay-container-smaller alert alert-danger">Tidak ada pertanyaan ditemukan, coba periksa kembali ID pertanyaanmu</div>
             </div>

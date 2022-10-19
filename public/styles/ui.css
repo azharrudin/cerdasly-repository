@@ -151,3 +151,10 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 } 
+.ui_mobile_navigation {
+    background: none;
+    border: none;
+    width: 24vw;
+    margin:0;
+    padding:0
+}
