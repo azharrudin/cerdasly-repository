@@ -55,6 +55,8 @@ if(isset($_GET["id"]) && $question != false){
         <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
         <script src="/js/clipper.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6098201334142651"
+     crossorigin="anonymous"></script>
         <script>
             const Popup = Swal.mixin({
                 toast: true,
