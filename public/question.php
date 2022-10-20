@@ -238,7 +238,7 @@ if($is_question_exist == false) http_response_code(404);
         </div>
         <div class="side-right" id="sideright">
             <div class="question-box">
-                <div class="list-card-x" style="background: white;">
+                <div class="list-card-x" style="background: white;border-radius: 6px;">
                     <div style="margin-bottom: 5px;margin-top: 5px;">
                         <span class="<?= categorytoicon($v['category']); ?> link-danger">
                             <?= $v['category'] ?>
