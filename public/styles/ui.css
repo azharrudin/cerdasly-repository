@@ -1,6 +1,7 @@
 .homepage-left-sidebar {
     border: 1px solid rgb(230, 230, 230);
     padding: 10px;
+    border-radius: 6px;
     background: white;
 }
 .ui_homepage_question_container {
