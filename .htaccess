@@ -11,7 +11,7 @@ ReWriteRule ^/?notifications?max=(.*)?$ /public/notifications.php?max=$2 [L]
 ReWriteRule ^/?notifications$ /public/notifications.php [L]
 ReWriteRule ^/?profile/(.*)$ /public/profile.php?user=$1 [L]
 
-ReWriteRule ^/?logout /public/profile.php?logout [L]
+ReWriteRule ^/?logout /public/profile.php?logout=true [L]
 ReWriteRule ^/?limit/(.*)$ /public/index.php?limit=$1 [L]
 ReWriteRule ^/?publicapi/(.*)$ /public/api/publicapi.php?$1 [L]
 
