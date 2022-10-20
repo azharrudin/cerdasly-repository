@@ -133,11 +133,11 @@ if($is_question_exist == false) http_response_code(404);
                     $sfk = $ans;
                 }
             if(isset($_POST["ask"]) && $UserLogin){
-                if(count($answers) >= 4){
+                if(count($answers) > 2){
                     echo <<<EOF
                         <div id="errorpopupdummy" style="display: none">
                             <script>Popup.fire({
-                                text: 'Jawaban sudah mencapai jumlah maksimal (5 jawaban)',
+                                text: 'Jawaban sudah mencapai jumlah maksimal (2 jawaban)',
                             });
                             </script>
                         </div>
@@ -158,7 +158,7 @@ if($is_question_exist == false) http_response_code(404);
                         }
                     }
                     $answers                = $Core->getAnswers($_GET["id"]);
-                    $stripedQuestionContent = substr(strip_tags($v["title"]), 0, 20);
+                    $stripedQuestionContent = substr(strip_tags($v["title"]), 0, 30);
                     $Core->addNotification(
                         "Pertanyaan <b>'".$stripedQuestionContent."...'</b> telah dijawab oleh ".$Core->getRealnameByUsername($user), 
                         $v["username"],
@@ -176,7 +176,7 @@ if($is_question_exist == false) http_response_code(404);
                         $currentanswer["answer"] = $Core->updateAnswer($sfk["id"], $_POST["ask"], "none");
                     }
                     else {
-                        $currentanswer["answer"] = $Core->updateAnswer($sfk["id"], $_POST["ask"], $attachment_success);
+                        $currentanswer["answer"] = $Core->updateAnswer($sfk["id"], $_POST["ask"], $sfk["attachment"]);
                         if(is_array($attachment_try)){
                             $attachment_try = $attachment_try["error_message"];
                             echo <<<EOF
@@ -227,8 +227,8 @@ if($is_question_exist == false) http_response_code(404);
     <?php
         $recent = $Core->getRecentQuestion(0, 6);
         foreach($recent as $r){
-            $rAnswer = substr($r["title"], 0, 50);
-            if(strlen($r["title"]) > 50){
+            $rAnswer = substr($r["title"], 0, 70);
+            if(strlen($r["title"]) > 70){
                 $rAnswer .= "...";
             }
             echo "<div class='other-question'><a href='/question/".$r["id"]."' class='text-muted other-question'>".strip_tags(trim($rAnswer))."</a></div>";
