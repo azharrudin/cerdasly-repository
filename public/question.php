@@ -176,7 +176,7 @@ if($is_question_exist == false) http_response_code(404);
                         $currentanswer["answer"] = $Core->updateAnswer($sfk["id"], $_POST["ask"], "none");
                     }
                     else {
-                        $currentanswer["answer"] = $Core->updateAnswer($sfk["id"], $_POST["ask"], $attachment_success);
+                        $currentanswer["answer"] = $Core->updateAnswer($sfk["id"], $_POST["ask"], $sfk["attachment"]);
                         if(is_array($attachment_try)){
                             $attachment_try = $attachment_try["error_message"];
                             echo <<<EOF
