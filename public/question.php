@@ -28,6 +28,8 @@ if(isset($_GET["id"]) && $question != false){
     $best_answer = $Core->getBestAnswer($_GET["id"]);
     if(!isset($best_answer["answer"])) $best_answer["answer"] = "Pertanyaan ini belum dijawab";
 }
+$is_question_exist = isset($_GET["id"]) && $Core->getQuestion(trim($_GET["id"]));
+if($is_question_exist == false) http_response_code(404);
 ?>
 <!DOCTYPE html>
 <html>
@@ -117,7 +119,7 @@ if(isset($_GET["id"]) && $question != false){
             </div>
         </div>
     <?php
-        if(isset($_GET["id"]) && $Core->getQuestion(trim($_GET["id"])) != false):
+        if($is_question_exist != false):
             $libtools           = new Libtools();
             $attachment         = $libtools->UploadAttachmentTools();
             $v                  = $Core->getQuestion($_GET["id"]);
@@ -659,7 +661,6 @@ if(isset($_GET["id"]) && $question != false){
         </script>
         <?php 
             else: 
-                http_response_code(404);
         ?>
         
             <div class="container">
