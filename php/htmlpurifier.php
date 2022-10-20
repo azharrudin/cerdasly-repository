@@ -17,6 +17,7 @@ function htmlpurify($dirty_html){
         center[style],
         u[style],
         b[style],
+        i[style],
         sup[style],
         sub[style]
     ");
