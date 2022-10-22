@@ -60,7 +60,8 @@
                         <span class="input-group-addon"><span class="bi bi-person-circle"></span></span>
                         <input class="form-control" id="email" placeholder="Email atau username akun anda" name="login_email" style="border-left: none;">
                     </div> 
-                    <small class="text-primary"><a href="/resetpass">Lupa username dan email akun saya</a></small>
+                    
+                    <small class="text-primary"><a href="/reset">Lupa username dan email akun saya</a></small>
                 </div>
                 <div class="form-group">
                     <div class="input-group cps-input-group">

@@ -99,7 +99,7 @@
                 <span class="bi bi-book"></span>
                 <a href="/login/" class="text-muted sidebar-list">Seorang guru? baca tentang panduan untuk guru disini</a><br>
             </div>
-            <div class="mt-1" style="border: 1px solid rgb(230, 230, 230);padding: 10px;background: white;">
+            <div class="mt-1" style="border: 1px solid rgb(230, 230, 230);padding: 10px;background: white;border-radius: 6px;">
                 <p class="text-muted text-center h5">Top 5 User</p>
                 <?php 
                     $bss = $core->getBestUser();

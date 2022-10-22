@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__."/../../php/cerdasly.php");
+require_once(__DIR__."/../php/cerdasly.php");
 $core       = new Core();
 $names_list = false;
 if(isset($_POST["search_name"])){
@@ -10,9 +10,9 @@ if(isset($_POST["search_name"])){
     <head>
         <title>Cerdasly - Lupa Password</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="/css/styles.css" rel="stylesheet">
-        <link href="/css/components.css" rel="stylesheet">
-        <link href="/css/ui.css" rel="stylesheet">
+        <link href="/styles/styles.css" rel="stylesheet">
+        <link href="/styles/components.css" rel="stylesheet">
+        <link href="/styles/ui.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">    
@@ -47,9 +47,13 @@ if(isset($_POST["search_name"])){
         if($names_list != false):
             foreach ($names_list as $val):
     ?>
-            <div>
-                <img src="<?= $core->getImgByUsername($val["username"]); ?>" class="ui_profile_icon-x30">
-                <?=  $val["realname"]; ?>:<?= $val["email"] ?>
+            <div class="ui_circular_wrapper list-card-x">
+                <div class="ui_circular_image-x30">
+                    <img onclick="window.location = '/profile/<?= $v['username'] ?>'" src="<?= $core->getImgByUsername($val['username']); ?>" class="ui_circled_image-x30">
+                </div>
+                <span class="text-muted" onclick="window.location = '/profile/<?= $val['username'] ?>'">
+                    <?= $val["realname"]; ?>
+                </span>
             </div>
     <?php
             endforeach;

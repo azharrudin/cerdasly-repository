@@ -5,10 +5,13 @@
     $core       = new Core();
     $libtools   = new Libtools();
     $attachment = $libtools->UploadAttachmentTools();
+    $islogin    = false;
     if(($core->login($_COOKIE["email"], $_COOKIE["pass"])) == false){
         header("Location: /login");
     }
-    if(isset($_POST["question"]) && isset($_POST["category"])){
+    else if($core->login($_COOKIE["email"], $_COOKIE["pass"]) == true)
+        $islogin = true;
+    if(isset($_POST["question"]) && isset($_POST["category"]) && $islogin){
         $core->addQuestion(
             $_POST["question"],
             $core->getUsername($_COOKIE["email"]),

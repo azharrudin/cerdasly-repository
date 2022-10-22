@@ -184,7 +184,7 @@ class Core {
         $this->m->query("UPDATE notifications SET readed=1 WHERE username LIKE ".$this->m->quote($username));
     }
     function getAllNotifications($username, $limit_from = 0, $limit_to = 15){
-        $r = $this->m->query("SELECT * FROM notifications WHERE username LIKE '$username' ORDER BY STR_TO_DATE(`postdate`,\"%d-%m-%y %H:%i:%s\") ASC LIMIT $limit_from, $limit_to;");
+        $r = $this->m->query("SELECT * FROM notifications WHERE username LIKE '$username' ORDER BY STR_TO_DATE(`postdate`,\"%d-%m-%y %H:%i:%s\") DESC LIMIT $limit_from, $limit_to;");
         $g = $r->fetchAll();
         if(gettype($g) == "boolean")
             return array();
