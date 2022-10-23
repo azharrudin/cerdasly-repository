@@ -30,3 +30,4 @@ ReWriteRule ^/?home$ /public/index.php [L]
 ReWriteRule ^/?ask$ /public/qask.php [L]
 ReWriteRule ^/?blog/(.*)+$ /Blog/$1 [L]
  
+ErrorDocument 404 /public/error.php 

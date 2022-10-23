@@ -6,6 +6,9 @@
     $libtools   = new Libtools();
     $attachment = $libtools->UploadAttachmentTools();
     $islogin    = false;
+    if(!isset($_COOKIE["email"]) || !isset($_COOKIE["pass"])){
+        header("Location: /login");
+    }
     if(($core->login($_COOKIE["email"], $_COOKIE["pass"])) == false){
         header("Location: /login");
     }
