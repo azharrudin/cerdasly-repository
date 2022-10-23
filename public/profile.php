@@ -147,7 +147,7 @@ if(strlen($core->getImgByUsername($_GET["user"])) < 1 && isset($_COOKIE["email"]
         }
     ?>
 <!-- BAGIAN BAR NAVIGASI -->
-<?= navigationBar($user, false) ?>
+<?= navigationBar($user, true) ?>
     <?php 
         if(gettype($notlogin) != "boolean")
             die($notlogin);

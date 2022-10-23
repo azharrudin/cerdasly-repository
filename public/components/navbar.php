@@ -8,11 +8,11 @@ function navigationBar($user, $space = true){
     ? "<img onclick=\"window.location = '/profile/'\" src='$profile_image' height=35 style='border-radius: 100%;max-width: 35px;object-fit: cover;' loading='lazy'>" 
     : "";
     $profile_image_exist      = strlen($profile_image) > 0 ? "" : "display: none;";
-    $login_button             = strlen($profile_image) > 0 ? "" : "<a style=\"float: right;\" class=\"btn btn-primary btn-sm ml-1 lay_button_login\" href='/login'>Masuk</a>";
+    $login_button             = strlen($profile_image) > 0 ? "" : "<a style=\"float: right;\" class=\"btn btn-primary btn-sm lay_button_login\" href='/login'>Masuk</a>";
     $unreadNotificationsTotal = count($core->getUnreadNotifications($user)); 
     $space = $space ? '<div class="ui_navspace"></div>' : "";
     return <<<EOF
-            <div class="fixed-top ui_navbar" style="item-align: center">
+            <div class="fixed-top ui_navbar navbar-fixed-top" style="item-align: center;width: 100%;z-index:999;">
                 <img
                     src="/logo.png"
                     height="40"
