@@ -10,9 +10,6 @@
         $islogin        = true;
         $user = $core->getUsername($_COOKIE["email"]);
     }
-    if(($core->login($_COOKIE["email"], $_COOKIE["pass"])) == false){
-        header("Location: /login");
-    }
     //--------------------------------------
     if(isset($_GET["limit"])):
         $limit = $_GET["limit"];
@@ -32,6 +29,12 @@
     <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad4">
     <meta name="msapplication-TileColor" content="#603cba">
     <meta name="theme-color" content="#ffffff">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cerdasly.com">
+    <meta property="og:title" content="Cerdasly Beranda">
+    <meta property="og:description" content="Lihat pertanyaan terbaru dari pengguna Cerdasly disini">
+    <meta property="og:image" content="/cerdasly.png">
+
     <!--- library dan framework yang dibutuhkan --->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/styles/styles.css" rel="stylesheet">
@@ -57,6 +60,7 @@
         timer: 3200
     });
     </script>   
+    <script src="/js/ui.js"></script>
     <style>
         @media (max-width: 460px) and (min-width: 200px){
             .search-question-box {
@@ -68,6 +72,11 @@
         }
         .ui_name_label {
                 margin-left: 5px;
+            }
+        .shadow {
+            box-shadow: 0px 0px 8px 5px rgba(126, 126, 126, 0.95);
+            -moz-box-shadow: 0px 0px 8px 5px rgba(126, 126, 126, 0.95);
+            -webkit-box-shadow: 0px 0px 8px 5px rgba(126, 126, 126, 0.95);
             }
     </style>
 </head>
@@ -83,13 +92,49 @@
         <div>
             <img id="ui_ocr_preview" style="max-width: 20vh;max-width: 30vw"> 
         </div>
-        
     </template>
-<?= navigationBar($user); ?>
+<?= navigationBar(isset($user) ?$user:""); ?>
 <div class="body">
     <div class="side-left mt-3">
         <div style="position: fixed;z-index: 999;width: 17%">  
-            <div class="homepage-left-sidebar">
+            <div class="homepage-left-sidebar shadow">
+                <div id="ui_userinfo">
+                <?php
+                    if(!$islogin):
+                ?>
+                    <div>
+                        <a class="text text-primary mb-1 mt-1 w-100" href="/login">
+                            Klik disini untuk masuk
+                        </a>
+                    </div>
+                <?php
+                    else:
+                        $total_voted_answer   = $core->m->query("SELECT count(*) AS names FROM answers WHERE `username` LIKE ".$core->m->quote($user)." AND `votes`>0")->fetch()["names"];
+                        $total_question = $core->m->query("SELECT count(*) AS names FROM questions WHERE `username` LIKE ".$core->m->quote($user))->fetch()["names"];
+                        $total_answer   = $core->getAnswerCountByUsername($user)[0]["total"];
+                        $rank = getranks($total_voted_answer, $total_answer, $total_question);
+                ?>
+                        <div class="ui_circular_wrapper mb-1">
+                            <div class="ui_circular_image-x30">
+                                <img onclick="window.location = '/profile/<?= $user ?>'" src="<?= $core->getImgByUsername($user); ?>" class="ui_circled_image-x30" loading="lazy">
+                            </div>
+                            <span class="text-muted" onclick="window.location = '/profile/<?= $user ?>'">
+                            <?= $core->getRealnameByUsername($user); ?> 
+                            </span>
+                        </div>     
+                        
+                        <span class="text-muted"><?= $total_answer ?> Jawaban</span><br>
+                        <span class="text-muted"><?= $core->m->query("SELECT count(*) AS names FROM comments WHERE `username` LIKE ".$core->m->quote($user))->fetch()["names"] ?> Komentar</span> <br>
+                        <span class="text-muted "><?= $total_question ?> Pertanyaan</span> 
+                        <br><a class="text-primary">Profil Saya</a>
+                        Rankmu: <?=  $rank["category"]."-".$rank["star"] ?>
+                <?php
+                    endif;
+                    
+                ?>
+                </div>
+            </div>
+            <div class="homepage-left-sidebar mt-1 shadow">
                 <span class="bi bi-newspaper"></span>
                 <a href="/login/" class="text-muted sidebar-list">Baca blog kita disini</a><br>
                 <span class="bi bi-megaphone"></span>
@@ -99,7 +144,7 @@
                 <span class="bi bi-book"></span>
                 <a href="/login/" class="text-muted sidebar-list">Seorang guru? baca tentang panduan untuk guru disini</a><br>
             </div>
-            <div class="mt-1" style="border: 1px solid rgb(230, 230, 230);padding: 10px;background: white;border-radius: 6px;">
+            <div class="mt-1 shadow" style="border: 1px solid rgb(230, 230, 230);padding: 10px;background: white;border-radius: 6px;" id="ui_ranklist">
                 <p class="text-muted text-center h5">Top 5 User</p>
                 <?php 
                     $bss = $core->getBestUser();
@@ -114,7 +159,11 @@
     </div>
     <div class="side-right">
         <div>  
-        <div class="card-question desktop-content-container" style="border-radius: 5px;z-index: 999;" id="searchbox">
+        <div class="lay-mobile-only homepage-left-sidebar shadow" id="ui_userinfo_mobile">
+
+        </div>
+        <div class="card-question desktop-content-container shadow" style="border-radius: 5px;z-index: 999;" id="searchbox">
+               
                 <div class="form-group mb-0">
                     <div class="input-group cps-input-group">
                         <span  onclick='$("#ocr_upload_form").click()' class="input-group-addon"><span class="bi bi-camera-fill"></span></span>
@@ -197,6 +246,7 @@
 </div>
 </div>
 <script>
+    $("#ui_userinfo_mobile").html($("#ui_userinfo").html())
     $('#ui_search_question').keypress(function (e) {
         var key = e.which;
         if(key == 13){

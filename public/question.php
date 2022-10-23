@@ -34,9 +34,9 @@ if($is_question_exist == false) http_response_code(404);
 <!DOCTYPE html>
 <html>
     <head>
-        <title><?= substr(strip_tags($question["title"]), 0, 50); ?></title>
+        <title><?= substr(strip_tags($question["title"]), 0, 60); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="<?= substr(strip_tags($best_answer["answer"]), 0, 100); ?>" name="description"/>
+        <meta content="<?= substr(strip_tags($best_answer["answer"]), 0, 150); ?>" name="description"/>
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
@@ -114,7 +114,7 @@ if($is_question_exist == false) http_response_code(404);
             <div class="form-group " style="margin-bottom: 5px;">
                 <div class="input-group cps-input-group">
                     <span class="input-group-addon"><span class="bi bi-search"></span></span>
-                    <input class="form-control" style="border-right: none;border-left: 1px" id="ui_question_search" placeholder="cari pertanyaan atau tugas anda disini..." name="email" style="border-left: none;">
+                    <input class="form-control" style="border-right: none;border-left: 1px" id="ui_question_search" placeholder="cari pertanyaan atau tugas anda disini..." name="email">
                 </div> 
             </div>
         </div>

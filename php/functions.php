@@ -148,73 +148,73 @@ function msgcreate($text){
  */
 function getranks($totalvoted, $totalanswers, $totalquestion){
     $total = ($totalanswers+$totalquestion) * ($totalvoted);
-    if($total < 100){
+    if($total < 30){
         return array(
             "category" => "newbie",
             "star" => 1
         );
     }
-    else if($total < 200){
+    else if($total < 60){
         return array(
             "category" => "newbie",
             "star" => 2
         );
     }
-    else if($total < 200){
+    else if($total < 90){
         return array(
             "category" => "newbie",
+            "star" => 3
+        );
+    }
+    else if($total < 120){
+        return array(
+            "category" => "amatir",
+            "star" => 1
+        );
+    }
+    else if($total < 150){
+        return array(
+            "category" => "amatir",
+            "star" => 2
+        );
+    }
+    else if($total < 180){
+        return array(
+            "category" => "amatir",
+            "star" => 3
+        );
+    }
+    else if($total < 210){
+        return array(
+            "category" => "master",
+            "star" => 1
+        );
+    }
+    else if($total < 240){
+        return array(
+            "category" => "master",
+            "star" => 2
+        );
+    }
+    else if($total < 270){
+        return array(
+            "category" => "master",
             "star" => 3
         );
     }
     else if($total < 300){
         return array(
-            "category" => "amatir",
-            "star" => 1
-        );
-    }
-    else if($total < 400){
-        return array(
-            "category" => "amatir",
-            "star" => 2
-        );
-    }
-    else if($total < 500){
-        return array(
-            "category" => "amatir",
-            "star" => 3
-        );
-    }
-    else if($total < 700){
-        return array(
-            "category" => "master",
-            "star" => 1
-        );
-    }
-    else if($total < 900){
-        return array(
-            "category" => "master",
-            "star" => 2
-        );
-    }
-    else if($total < 1100){
-        return array(
-            "category" => "master",
-            "star" => 3
-        );
-    }
-    else if($total < 1400){
-        return array(
             "category" => "grandmaster",
             "star" => 1
         );
     }
-    else if($total < 1700){
+    else if($total < 330){
         return array(
             "category" => "grandmaster",
             "star" => 3
         );
     }
-    else if($total > 2000){
+    else if($total > 370){
         return array(
             "category" => "expert",
             "star" => 0

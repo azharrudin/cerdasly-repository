@@ -8,13 +8,13 @@ function navigationBar($user, $space = true){
     ? "<img onclick=\"window.location = '/profile/'\" src='$profile_image' height=35 style='border-radius: 100%;max-width: 35px;object-fit: cover;' loading='lazy'>" 
     : "";
     $profile_image_exist      = strlen($profile_image) > 0 ? "" : "display: none;";
-    $login_button             = strlen($profile_image) > 0 ? "" : "<a style=\"float: right;margin-left: 6px\" class=\"btn btn-primary btn-sm ml-1\" href='/login'>Masuk</a>";
+    $login_button             = strlen($profile_image) > 0 ? "" : "<a style=\"float: right;\" class=\"btn btn-primary btn-sm ml-1 lay_button_login\" href='/login'>Masuk</a>";
     $unreadNotificationsTotal = count($core->getUnreadNotifications($user)); 
-    $space = $space ? '<div style="margin-top: 46px;"></div>' : "";
+    $space = $space ? '<div class="ui_navspace"></div>' : "";
     return <<<EOF
             <div class="fixed-top ui_navbar" style="item-align: center">
                 <img
-                    src="/cerdasly.png"
+                    src="/logo.png"
                     height="40"
                     alt="Cerdasly Logo"
                     loading="lazy"
@@ -30,15 +30,15 @@ function navigationBar($user, $space = true){
                         Bertanya
                     </a>
                     <span class="badge badge-pill badge-danger ui_navbar_notification_badge">$unreadNotificationsTotal</span>
-                </div>          
+                </div>      
+                <div class="lay-mobile-only w-100" style="overflow-x: scroll;background: white;margin-bottom: 4px;height: fixed;position: fixed;z-index: 999;border-top: 1px solid rgb(230, 230, 230);border-bottom: 1px solid rgb(230, 230, 230)">
+                    <button class="ui_mobile_navigation"><h4><a href="/" class="text-muted"><span class="bi bi-house-door"></span></a></h4></button>
+                    <button class="ui_mobile_navigation"><h4><a  onclick="ui_ranklist()" class="text-muted"><span class="bi bi-trophy"></span></a></h4></button>
+                    <button class="ui_mobile_navigation"><h4><a class="text-muted"><span class="bi bi-newspaper"></span></a></h4></button>
+                    <button class="ui_mobile_navigation"><h4><a><span class="bi bi-search"></span></a></h4></button>
+                </div>    
             </div>
             $space
-            <div class="lay-mobile-only" style="overflow-x: scroll;background: white;margin-bottom: 4px;height: fixed;">
-                <button class="ui_mobile_navigation"><h4><a href="/" class="text-muted"><span class="bi bi-house-door"></span></a></h4></button>
-                <button class="ui_mobile_navigation"><h4><a href="/" class="text-muted"><span class="bi bi-trophy"></span></a></h4></button>
-                <button class="ui_mobile_navigation"><h4><a class="text-muted"><span class="bi bi-newspaper"></span></a></h4></button>
-                <button class="ui_mobile_navigation"><h4><a><span class="bi bi-search"></span></a></h4></button>
-            </div>
         EOF;
       
     }
