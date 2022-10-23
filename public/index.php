@@ -119,15 +119,14 @@
                                 <img onclick="window.location = '/profile/<?= $user ?>'" src="<?= $core->getImgByUsername($user); ?>" class="ui_circled_image-x30" loading="lazy">
                             </div>
                             <span class="text-muted" onclick="window.location = '/profile/<?= $user ?>'">
-                            <?= $core->getRealnameByUsername($user); ?> 
+                            <?= $core->getRealnameByUsername($user); ?> (<?=  $rank["category"]."-".$rank["star"] ?>)
                             </span>
                         </div>     
                         
-                        <span class="text-muted"><?= $total_answer ?> Jawaban</span><br>
-                        <span class="text-muted"><?= $core->m->query("SELECT count(*) AS names FROM comments WHERE `username` LIKE ".$core->m->quote($user))->fetch()["names"] ?> Komentar</span> <br>
-                        <span class="text-muted "><?= $total_question ?> Pertanyaan</span> 
+                        <span class="text-muted">›› <?= $total_answer ?> Jawaban</span><br> 
+                        <span class="text-muted">›› <?= $core->m->query("SELECT count(*) AS names FROM comments WHERE `username` LIKE ".$core->m->quote($user))->fetch()["names"] ?> Komentar</span><br>
+                        <span class="text-muted ">›› <?= $total_question ?> Pertanyaan</span>
                         <br><a class="text-primary">Profil Saya</a>
-                        Rankmu: <?=  $rank["category"]."-".$rank["star"] ?>
                 <?php
                     endif;
                     
@@ -159,7 +158,7 @@
     </div>
     <div class="side-right">
         <div>  
-        <div class="lay-mobile-only homepage-left-sidebar shadow" id="ui_userinfo_mobile">
+        <div class="desktop-content-container lay-mobile-only homepage-left-sidebar shadow" id="ui_userinfo_mobile">
 
         </div>
         <div class="card-question desktop-content-container shadow" style="border-radius: 5px;z-index: 999;" id="searchbox">

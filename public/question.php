@@ -67,6 +67,7 @@ if($is_question_exist == false) http_response_code(404);
                 timer: 3500
             });
         </script>
+        <script src="/js/ui.js"></script>
         <style>
             .swal2-popup {
                 font-size: 1rem;
