@@ -32,8 +32,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cerdasly.com">
     <meta property="og:title" content="Cerdasly Beranda">
-    <meta property="og:description" content="Lihat pertanyaan terbaru dari pengguna Cerdasly disini">
-    <meta property="og:image" content="/cerdasly.png">
+    <meta property="og:description" content="Lihat pertanyaan dan tugas sekolah terbaru dari para pengguna Cerdasly disini">
+    <meta property="og:image" content="/logo.png">
 
     <!--- library dan framework yang dibutuhkan --->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

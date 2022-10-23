@@ -20,6 +20,7 @@
     <head>
         <title>Tidak Ditemukan - Cerdasly</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="404 Sumber daya tidak ditemukan">
         <!--- library dan framework yang dibutuhkan --->
         <link href="/styles/styles.css" rel="stylesheet">
         <link href="/styles/ui.css" rel="stylesheet">
