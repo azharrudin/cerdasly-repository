@@ -3,6 +3,7 @@ require_once(__DIR__."/../php/cerdasly.php");
 require_once(__DIR__."/../php/functions.php");
 require_once(__DIR__."/../php/tools/libtools.php");
 require_once(__DIR__."/components/navbar.php");
+require_once(__DIR__."/components/favicon.php");
 //-------------------------------------------
 // initialize variables and objects
 //-------------------------------------------
@@ -37,13 +38,7 @@ if($is_question_exist == false) http_response_code(404);
         <title><?= substr(strip_tags($question["title"]), 0, 60); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="<?= substr(strip_tags($best_answer["answer"]), 0, 150); ?>" name="description"/>
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-        <link rel="manifest" href="/favicon/site.webmanifest">
-        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad4">
-        <meta name="msapplication-TileColor" content="#603cba">
-        <meta name="theme-color" content="#ffffff">
+        <?= faviconImg() ?>
         <link href="/styles/styles.css" rel="stylesheet">
         <link href="/styles/ui.css" rel="stylesheet">
         <link href="/styles/components.css" rel="stylesheet">

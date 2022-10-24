@@ -2,6 +2,7 @@
     require_once(__DIR__."/../php/cerdasly.php");
     require_once(__DIR__."/../php/functions.php");
     require_once(__DIR__."/components/navbar.php");
+    require_once(__DIR__."/components/favicon.php");
     //--------------------------------------
     $core           = new Core();
     $islogin        = false;
@@ -22,19 +23,12 @@
     <title>Cerdasly - Beranda</title>
     <!--- favicon dan thumbnail website --->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/favicon/site.webmanifest">
-    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad4">
-    <meta name="msapplication-TileColor" content="#603cba">
-    <meta name="theme-color" content="#ffffff">
+    <?= faviconImg(); ?>
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cerdasly.com">
     <meta property="og:title" content="Cerdasly Beranda">
     <meta property="og:description" content="Lihat pertanyaan dan tugas sekolah terbaru dari para pengguna Cerdasly disini">
-    <meta property="og:image" content="/logo.png">
-
+    <meta property="og:image" content="/icon/favicon-32x32.png">
     <!--- library dan framework yang dibutuhkan --->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/styles/styles.css" rel="stylesheet">
