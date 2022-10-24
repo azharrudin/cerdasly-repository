@@ -158,9 +158,9 @@ class Core {
     }
     function deleteAnswer($answerid){
         $answer_attachment =  $this->getAnswerByID($answerid)["attachment"];
+        $comments = $this->getComments($answerid);
         $answerid = $this->m->quote($answerid);
         $this->m->query("DELETE FROM answers WHERE id LIKE $answerid;");
-        $comments = $this->getComments($answerid);
         if(file_exists(CRDSLY_ATTACHMENT_ANSWERS_DIR.$answer_attachment.".png")){
             @unlink(CRDSLY_ATTACHMENT_ANSWERS_DIR.$answer_attachment.".png");
         }
