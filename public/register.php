@@ -43,6 +43,7 @@
         $msg   = "";
         if(isset($_POST["username"]) && isset($_POST["code"])){
             session_start();
+            var_dump($_POST, $_SESSION);
             //-----------------------------------------
             // Validasi variabel username yang sudah ada 
             //-----------------------------------------
@@ -59,10 +60,10 @@
                     trim($_SESSION["email"]), 
                     trim($_SESSION["password"])
                 );
-                echo "<script>window.location.replace(\"/login\")</script>";
+                echo "<script>alert(\"Akun dibuat\");window.location.replace(\"/login\")</script>";
+            
             }
             else {
-                var_dump($_POST, $_SESSION);
                 $msg             = "Coba periksa kode verifikasi yang kamu masukan atau coba hubungi kami jika masalah terus berlanjut";
                 $ctrue           = true;
             }
@@ -162,9 +163,7 @@
                 <center style="margin-top: 6px;"><small>Sudah punya akun? <a class="link-primary" href="/login">Klik disini untuk masuk</a></small></center>
             </form>
             <script>
-                if ( window.history.replaceState ) {
-                    window.history.replaceState( null, null, window.location.href );
-                }
+              
             </script>
         </div>
         

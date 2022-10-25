@@ -54,8 +54,8 @@
                 $c = $username."-".generator(5, "abcdefghijklmnopqrstuvwxyz");
                 $f = fopen($userimgdir.$c.".png", "w");
                 fwrite($f, fread(
-                    fopen(__DIR__."/userimg/template/Anonym.png", "r"),
-                    filesize(__DIR__."/userimg/template/Anonym.png")
+                    fopen(__DIR__."/../userimg/template/Anonym.png", "r"),
+                    filesize(__DIR__."/../userimg/template/Anonym.png")
                 ));
                 fclose($f);
                 $this->m->exec("
