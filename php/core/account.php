@@ -49,7 +49,7 @@
                     return;
                 $user     = $this->m->quote(strtolower($username));
                 $email    = $this->m->quote($email);
-                $password = $this->m->quote(password_hash($password, PASSWORD_DEFAULT));
+                $password = $this->m->quote(password_hash(trim($password), PASSWORD_DEFAULT));
                 $realname = $this->m->quote($realname);
                 $c = $username."-".generator(5, "abcdefghijklmnopqrstuvwxyz");
                 $f = fopen($userimgdir.$c.".png", "w");
