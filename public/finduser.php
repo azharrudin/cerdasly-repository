@@ -42,6 +42,8 @@ if(isset($_POST["search_name"])){
                         <button type="submit" class="btn btn-danger cps-btn" style="width: 100%;border-radius: 15px;" onclick="search_name()">Cari</button><br>
                         <center  style="margin-top: 11px;"><small><a class="link-primary" href="/register"> Saya lupa email saya</a></small></center>
             </div>
+<?=    var_dump(CRDSLY_IMG_PROFILE_DIR."/".$this->getImgByUsername("cerdaslyteacher")); ?>
+
                 <div id="ui_search_name_container">
     <?php
         if($names_list != false):

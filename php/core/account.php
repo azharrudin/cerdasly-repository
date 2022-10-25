@@ -1,6 +1,5 @@
 <?php  
     require_once(__DIR__."/../../config/config.php");
-    var_dump(CRDSLY_IMG_PROFILE_DIR."/".$this->getImgByUsername($username));
     trait accountAction  {
         /**
          * delete user account that existed in database. Return true if success and false if failed.
