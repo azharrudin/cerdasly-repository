@@ -43,7 +43,7 @@
         $msg   = "";
         if(isset($_POST["username"]) && isset($_POST["code"])){
             session_start();
-            var_dump($_POST, $_SESSION);
+            var_dump($_SESSION, $_POST);
             //-----------------------------------------
             // Validasi variabel username yang sudah ada 
             //-----------------------------------------
