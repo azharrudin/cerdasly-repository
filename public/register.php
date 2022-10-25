@@ -69,16 +69,8 @@
             $msg   = "Kata sandi anda hanya diizinkan menggunakan huruf/angka dan garis bawah";
             $ctrue = true;
         }
-        if($expr && (!$core->emailExist($_POST["email"])) && $ctrue == false):
-            session_start();
-            $c = generator(5);
-            $_SESSION["code"]     = sendVerification($_POST["email"], $c);
-            $_SESSION["realname"] = $_POST["realname"];
-            $_SESSION["email"]    = $_POST["email"];
-            $_SESSION["password"] = $_POST["password"];
-            
-    ?>
-    <html>
+?>
+<html>
     <head>
         <title>Cerdasly - Bergabunglah Sekarang</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -106,6 +98,16 @@
         style="margin-top: 20px;"
       />
     </center>
+   <?php
+        if($expr && (!$core->emailExist($_POST["email"])) && $ctrue == false):
+            session_start();
+            $c = generator(5);
+            $_SESSION["code"]     = sendVerification($_POST["email"], $c);
+            $_SESSION["realname"] = $_POST["realname"];
+            $_SESSION["email"]    = $_POST["email"];
+            $_SESSION["password"] = $_POST["password"];
+            
+    ?>
         <!--- Tahap konfirmasi pembuatan akun --->
         <div class="lay-container-sm container" style="padding: 10px;">
             <form action="#" method="post" class="box-a p-5 pt-3 ml-5 mr ui_create_account_container">
