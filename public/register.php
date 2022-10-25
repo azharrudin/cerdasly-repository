@@ -100,7 +100,6 @@
     </center>
    <?php
         if($expr && (!$core->emailExist($_POST["email"])) && $ctrue == false):
-            session_start();
             $c = generator(5);
             $_SESSION["code"]     = sendVerification($_POST["email"], $c);
             $_SESSION["realname"] = $_POST["realname"];
