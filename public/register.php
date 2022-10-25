@@ -15,7 +15,6 @@
         $msg   = "";
         if(isset($_POST["username"]) && isset($_POST["code"])){
             session_start();
-            var_dump($_SESSION, $_POST);
             //-----------------------------------------
             // Validasi variabel username yang sudah ada 
             //-----------------------------------------
@@ -32,7 +31,7 @@
                     trim($_SESSION["email"]), 
                     trim($_SESSION["password"])
                 );
-                echo "<script>alert(\"Akun dibuat\");window.location.replace(\"/login\")</script>";
+                header("/login");
             
             }
             else {
