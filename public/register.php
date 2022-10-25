@@ -1,4 +1,4 @@
-    <?php
+<?php
         require_once(__DIR__."/../php/cerdasly.php");
         require_once(__DIR__."/../php/email.php");
         require_once(__DIR__."/../php/functions.php");
