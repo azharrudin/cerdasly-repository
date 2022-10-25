@@ -43,6 +43,9 @@
             session_unset();
             session_destroy();
         }
+        if($expr && (!$core->emailExist($_POST["email"])) && $ctrue == false){
+           session_start();
+        }
         //-----------------------------------------
         // Validasi variabel email yang sudah ada
         //-----------------------------------------
