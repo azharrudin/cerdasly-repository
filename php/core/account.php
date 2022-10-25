@@ -14,7 +14,7 @@
                 try {
                     $this->m->exec("
                         DELETE FROM users WHERE username=".$this->m->quote($username).";
-                    ");
+                    ");//
                     $answers = $this->getAnswersByUsername($username);
                     unlink(CRDSLY_IMG_PROFILE_DIR."/".$this->getImgByUsername($username));
                     foreach($answers as $as){
