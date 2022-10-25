@@ -67,11 +67,7 @@
         .ui_name_label {
                 margin-left: 5px;
             }
-        .shadow {
-            box-shadow: 0px 0px 8px 5px rgba(126, 126, 126, 0.95);
-            -moz-box-shadow: 0px 0px 8px 5px rgba(126, 126, 126, 0.95);
-            -webkit-box-shadow: 0px 0px 8px 5px rgba(126, 126, 126, 0.95);
-            }
+       
     </style>
 </head>
 <?php

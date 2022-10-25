@@ -62,6 +62,7 @@
                 echo "<script>window.location.replace(\"/login\")</script>";
             }
             else {
+                var_dump($_POST, $_SESSION);
                 $msg             = "Coba periksa kode verifikasi yang kamu masukan atau coba hubungi kami jika masalah terus berlanjut";
                 $ctrue           = true;
             }
