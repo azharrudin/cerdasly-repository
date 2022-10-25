@@ -1,3 +1,6 @@
+<?php
+ini_set("display_errors", 1);
+?>
 <html>
     <head>
         <title>Cerdasly - Bergabunglah Sekarang</title>
