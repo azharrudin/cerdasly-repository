@@ -31,16 +31,13 @@
                     trim($_SESSION["email"]), 
                     trim($_SESSION["password"])
                 );
-                header("/login");
-            
+                header("Location: /login");
             }
             else {
                 $msg             = "Coba periksa kode verifikasi yang kamu masukan atau coba hubungi kami jika masalah terus berlanjut";
                 $ctrue           = true;
             }
             $_POST = array();
-            session_unset();
-            session_destroy();
         }
         if($expr && (!$core->emailExist($_POST["email"])) && $ctrue == false){
            session_start();
@@ -247,7 +244,7 @@
                 $("#husername").addClass("text-muted")
                 $("#husername").removeClass("text-danger")
             }
-            else if($("#username").val().length > 20){
+            else if($("#username").val().length > 15){
                 $("#husername").html("Maksimal 20 karakter")
                 $("#husername").addClass("text-muted")
                 $("#husername").removeClass("text-danger")
