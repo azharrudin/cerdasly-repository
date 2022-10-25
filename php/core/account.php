@@ -16,7 +16,7 @@
                         DELETE FROM users WHERE username=".$this->m->quote($username).";
                     ");
                     $answers = $this->getAnswersByUsername($username);
-                    unlink(dirname(__FILE__)."/".$this->getImgByUsername($username));
+                    unlink(CRDSLY_IMG_PROFILE_DIR."/".$this->getImgByUsername($username));
                     foreach($answers as $as){
                         $this->deleteAnswer($as["id"]);
                     }
@@ -24,7 +24,7 @@
                     foreach($questions as $qs){
                         $this->deleteQuestion($qs["id"]);
                     }
-                    $this->m->query("DELETE FROM notifications WHERE username LIKE ".$username);
+                    $this->m->query("DELETE FROM notifications WHERE username LIKE ".$this->m->quote($username));
                     $this->m->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     return true;
                 } catch(PDOException $e) {
