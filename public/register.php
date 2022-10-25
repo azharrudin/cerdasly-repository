@@ -1,34 +1,3 @@
-<?php
-ini_set("display_errors", 1);
-?>
-<html>
-    <head>
-        <title>Cerdasly - Bergabunglah Sekarang</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">    
-        <link href="/styles/styles.css" rel="stylesheet">
-        <link href="/styles/components.css" rel="stylesheet">
-        <link href="/styles/ui.css" rel="stylesheet">
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <style>
-            .ui_create_account_container {
-                border: 2px solid rgb(230, 230, 230);
-                border-radius: 5px;
-                background-color: white;
-            }
-        </style>
-    </head>
-    <body>
-    <center><img
-        src="/cerdasly.png"
-        height="70"
-        alt="Cerdasly Logo"
-        loading="lazy"
-        style="margin-top: 20px;"
-      />
-    </center>
     <?php
         require_once(__DIR__."/../php/cerdasly.php");
         require_once(__DIR__."/../php/email.php");
@@ -109,6 +78,34 @@ ini_set("display_errors", 1);
             $_SESSION["password"] = $_POST["password"];
             
     ?>
+    <html>
+    <head>
+        <title>Cerdasly - Bergabunglah Sekarang</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">    
+        <link href="/styles/styles.css" rel="stylesheet">
+        <link href="/styles/components.css" rel="stylesheet">
+        <link href="/styles/ui.css" rel="stylesheet">
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <style>
+            .ui_create_account_container {
+                border: 2px solid rgb(230, 230, 230);
+                border-radius: 5px;
+                background-color: white;
+            }
+        </style>
+    </head>
+    <body>
+    <center><img
+        src="/cerdasly.png"
+        height="70"
+        alt="Cerdasly Logo"
+        loading="lazy"
+        style="margin-top: 20px;"
+      />
+    </center>
         <!--- Tahap konfirmasi pembuatan akun --->
         <div class="lay-container-sm container" style="padding: 10px;">
             <form action="#" method="post" class="box-a p-5 pt-3 ml-5 mr ui_create_account_container">
