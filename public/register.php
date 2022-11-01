@@ -232,7 +232,7 @@
         }
         function username_on(){
             var re = /^[0-9a-z\_]+$/;
-            var v = `Minimal 4 huruf dan maksimal 20 huruf kecil saja, hanya angka dan garis bawah di perbolehkan`
+            var v = `Minimal 4 huruf dan maksimal 15 huruf kecil saja, hanya angka dan garis bawah di perbolehkan`
             $("#username").val(($("#username").val().toLowerCase().trim()))
             if($("#username").val().length == 0){
                 $("#husername").addClass("text-danger")
