@@ -38,6 +38,7 @@ if($is_question_exist == false) http_response_code(404);
         <title><?= substr(strip_tags($question["title"]), 0, 60); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="<?= substr(strip_tags($best_answer["answer"]), 0, 150); ?>" name="description"/>
+        <meta content="title" name="<?= substr(strip_tags($question["title"]), 0, 60); ?>">
         <?= faviconImg() ?>
         <link href="/styles/styles.css" rel="stylesheet">
         <link href="/styles/ui.css" rel="stylesheet">
@@ -142,7 +143,7 @@ if($is_question_exist == false) http_response_code(404);
                 else if(!$alreadyanswer) {
                     if($user != $v["username"]){
                         $attachment_try     =  $Core->addAnswer($_POST["ask"], $user, trim($_GET["id"]));                       
-                        $stripedQuestionContent = substr(strip_tags($v["title"]), 0, 40);
+                        $stripedQuestionContent = substr(strip_tags($v["title"]), 0, 35);
                         $Core->addNotification(
                             "Pertanyaan <b>'".$stripedQuestionContent."...'</b> telah dijawab oleh ".$Core->getRealnameByUsername($user), 
                             $v["username"],
