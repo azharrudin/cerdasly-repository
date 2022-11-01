@@ -232,8 +232,8 @@
         }
         function username_on(){
             var re = /^[0-9a-z\_]+$/;
-            var v = `Minimal 4 huruf dan maksimal 20 huruf kecil, hanya angka dan garis bawah di perbolehkan`
-            
+            var v = `Minimal 4 huruf dan maksimal 20 huruf kecil saja, hanya angka dan garis bawah di perbolehkan`
+            $("#username").val(($("#username").val().toLowerCase().trim()))
             if($("#username").val().length == 0){
                 $("#husername").addClass("text-danger")
                 $("#husername").removeClass("text-muted")
@@ -241,18 +241,18 @@
             }
             else if($("#username").val().length < 4){
                 $("#husername").html("Minimal 4 karakter")
-                $("#husername").addClass("text-muted")
-                $("#husername").removeClass("text-danger")
+                $("#husername").addClass("text-danger")
+                $("#husername").removeClass("text-muted")
             }
             else if($("#username").val().length > 15){
-                $("#husername").html("Maksimal 20 karakter")
-                $("#husername").addClass("text-muted")
-                $("#husername").removeClass("text-danger")
+                $("#husername").html("Maksimal 15 karakter")
+                $("#husername").addClass("text-danger")
+                $("#husername").removeClass("text-muted")
             }
             else if(!re.test($("#username").val())){
                 $("#husername").html("Hanya huruf, angka dan garis bawah")
-                $("#husername").addClass("text-muted")
-                $("#husername").removeClass("text-danger")
+                $("#husername").addClass("text-danger")
+                $("#husername").removeClass("text-muted")
             }
             else {
                 $("#husername").addClass("text-muted")

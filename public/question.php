@@ -142,6 +142,13 @@ if($is_question_exist == false) http_response_code(404);
                 else if(!$alreadyanswer) {
                     if($user != $v["username"]){
                         $attachment_try     =  $Core->addAnswer($_POST["ask"], $user, trim($_GET["id"]));                       
+                        $stripedQuestionContent = substr(strip_tags($v["title"]), 0, 40);
+                        $Core->addNotification(
+                            "Pertanyaan <b>'".$stripedQuestionContent."...'</b> telah dijawab oleh ".$Core->getRealnameByUsername($user), 
+                            $v["username"],
+                            $notificationCode["answered"].$v["id"],
+                            $user
+                        );
                         if(is_array($attachment_try)){
                             $attachment_try = $attachment_try["error_message"];
                             echo <<<EOF
@@ -154,13 +161,7 @@ if($is_question_exist == false) http_response_code(404);
                         }
                     }
                     $answers                = $Core->getAnswers($_GET["id"]);
-                    $stripedQuestionContent = substr(strip_tags($v["title"]), 0, 30);
-                    $Core->addNotification(
-                        "Pertanyaan <b>'".$stripedQuestionContent."...'</b> telah dijawab oleh ".$Core->getRealnameByUsername($user), 
-                        $v["username"],
-                        $notificationCode["answered"].$v["id"],
-                        $user
-                    );
+                    
                 }
                 else {
                     $attachment_remove  = isset($_POST["attachment_remove"]) && $_POST['attachment_remove'] == "1"  ? true : false; 
