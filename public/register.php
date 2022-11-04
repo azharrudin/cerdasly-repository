@@ -15,6 +15,7 @@
         $msg   = "";
         if(isset($_POST["username"]) && isset($_POST["code"])){
             session_start();
+           
             //-----------------------------------------
             // Validasi variabel username yang sudah ada 
             //-----------------------------------------
@@ -36,6 +37,9 @@
             else {
                 $msg             = "Coba periksa kode verifikasi yang kamu masukan atau coba hubungi kami jika masalah terus berlanjut";
                 $ctrue           = true;
+            }
+            if(strlen($_POST["username"]) > 15){
+                $msg = "Username (nama pengguna) terlalu panjang, maksimal 15 karakter (huruf kecil/angka/garis bawah)";
             }
             $_POST = array();
         }
