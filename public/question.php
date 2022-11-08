@@ -39,6 +39,7 @@ if($is_question_exist == false) http_response_code(404);
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="<?= substr(strip_tags($best_answer["answer"]), 0, 150); ?>" name="description"/>
         <meta content="title" name="<?= substr(strip_tags($question["title"]), 0, 60); ?>">
+        <meta name="robots" content="index, follow">
         <?= faviconImg() ?>
         <link href="/styles/styles.css" rel="stylesheet">
         <link href="/styles/ui.css" rel="stylesheet">
