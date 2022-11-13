@@ -94,10 +94,17 @@
                 return array();
             return $x;
         }
-        function changePassword($username, $new_password){
+        function changePassword($email, $new_password){
             $new_password = password_hash($new_password, PASSWORD_DEFAULT);
-            $r = $this->m->query("UPDATE `users` SET `password`=".$this->m->quote($new_password)." WHERE `email` LIKE ".$this->m->quote($username));
+            $r = $this->m->query("UPDATE `users` SET `password`=".$this->m->quote($new_password)." WHERE `email` LIKE ".$this->m->quote($email));
             $x = $r->fetch();
             return $x;
+        }
+        function changeEmail($email, $new_email){
+            if($this->emailExist($new_email))
+                return false;
+            $r = $this->m->query("UPDATE `users` SET `email`=".$this->m->quote($new_email)." WHERE `email` LIKE ".$this->m->quote($email));
+            $x = $r->fetch();
+            return true;
         }
     }

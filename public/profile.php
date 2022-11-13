@@ -5,7 +5,9 @@ require_once(__DIR__."/components/navbar.php");
 //------------------------------------------------------------------
 $core     = new Core();
 $notlogin = false;
-$user = "";
+$user     = "";
+$islogin  = false;
+
 if(isset($_GET["logout"])){
     setcookie("email", "", time()-10, "/");
     setcookie("pass", "", time()-10, "/");
@@ -26,6 +28,29 @@ else {
 }
 if(strlen($core->getImgByUsername($_GET["user"])) < 1 && isset($_COOKIE["email"]) && !isset($_POST["request_check_only"]) && strlen($_GET["user"]) < 1){
     header("Location: /profile/".$core->getUsername($_COOKIE["email"]));
+}
+if((isset($_COOKIE["email"]) && $_COOKIE["pass"]) && ($core->login($_COOKIE["email"], $_COOKIE["pass"])) != false){
+    $user = $core->getUsername($_COOKIE['email']);
+    $islogin        = true;
+}
+if(isset($_POST["change_email"]) && $islogin){
+    if(isset($_POST["new_email"]) && isset($_POST["current_password"])){
+        if(($core->login($_COOKIE["email"], trim($_POST["current_password"]))) != false){
+            $email_change = $core->changeEmail($_COOKIE["email"], $_POST["new_email"]);
+            if(!$email_change){
+                http_response_code(400);
+            }
+            else {
+                setcookie("email",  $_POST['new_email']);
+            }
+        }
+        else  { 
+            http_response_code(400);
+        }
+    } 
+    else  {
+        http_response_code(400);
+    }
 }
 //------------------------------------------------------------------
 ?>
@@ -58,21 +83,7 @@ if(strlen($core->getImgByUsername($_GET["user"])) < 1 && isset($_COOKIE["email"]
 </html>
 <body>
     <?php 
-        //--------------------------------
-        // Proses setup kode PHP di page ini
-        //--------------------------------
-        $islogin = false;
-        $currentuserimg = '
-        <a href="/login" type="button" class="btn btn-primary" style="float: right;margin-right: 5px;">Login</a>
-        ';
-        //--------------------------------
-        // Proses validasi telah login atau belum
-        //--------------------------------
-        if((isset($_COOKIE["email"]) && $_COOKIE["pass"]) && ($core->login($_COOKIE["email"], $_COOKIE["pass"])) != false){
-            $user = $core->getUsername($_COOKIE['email']);
-            $islogin        = true;
-            $currentuserimg = "<img onclick='window.location = \"/profile/\"' src='".$core->getImg($_COOKIE['email'])."' height=35 style='border-radius: 100%;max-width: 35px;'>";
-        }
+       
         //--------------------------------
         // Proses mengganti nama asli pengguna
         // Dengan mengganti nilai `realname` di database
@@ -147,9 +158,10 @@ if(strlen($core->getImgByUsername($_GET["user"])) < 1 && isset($_COOKIE["email"]
                     });</script>";
             }
         }
+      
     ?>
 <!-- BAGIAN BAR NAVIGASI -->
-<?= navigationBar($user, true) ?>
+<?= navigationBar($user, true) ?><div style="padding-top: 5px"></div>
     <?php 
         if(gettype($notlogin) != "boolean")
             die($notlogin);
@@ -262,9 +274,8 @@ if(strlen($core->getImgByUsername($_GET["user"])) < 1 && isset($_COOKIE["email"]
                             <span class="input-group-addon"><span class="bi bi-person-circle"></span></span>
                             <input  type="email" 
                                     class="form-control" 
-                                    id="email" 
+                                    id="ui_email" 
                                     placeholder="Ganti Email Anda" 
-                                    name="email" 
                                     style="border-left: none;"
                                     value="<?= $core->getEmailByUsername($_GET['user']) ?>"
                             />
@@ -272,22 +283,23 @@ if(strlen($core->getImgByUsername($_GET["user"])) < 1 && isset($_COOKIE["email"]
                         <p class="form-text text-muted"  style="text-align:left;width: 100%;">gunakan hanya email yang aktif</p>
                     </div>
                     <div class="form-group">
-                        <label style="text-align:left;width: 100%;">Password Baru</label>
                         <div class="input-group cps-input-group">
                             <span class="input-group-addon"><span class="bi bi-shield-lock"></span></span>
-                            <input type="password" class="form-control" id="email" placeholder="Password" name="email" style="border-left: none;">
+                            <input class="form-control" id="ui_verification" placeholder="Kode Verifikasi" style="border-left: none;">
+                            <span class="input-group-addon" ><button type="button" style="border: none;background: white" onclick="system_sendVerification()">Dapatkan</button></span>
                         </div> 
-                        <p class="form-text text-muted"  style="text-align:left;width: 100%;">password terdiri dari minimal 4 huruf dan maksimal 20 huruf</p>
+                        <p class="form-text text-muted"  style="text-align:left;width: 100%;">Klik 'dapatkan' untuk mendapat kode verifikasi</p>
                     </div>
+                    <hr>
                     <div class="form-group">
-                        <label style="text-align:left;width: 100%;">Password anda saat ini</label>
+                        <label style="text-align:left;width: 100%;">Password Anda</label>
                         <div class="input-group cps-input-group">
-                            <span class="input-group-addon"><span class="bi bi-key"></span></span>
-                            <input  class="form-control" id="email" placeholder="Password" name="email" style="border-left: none;"  required/>
+                            <span class="input-group-addon"><span class="bi bi-shield-lock"></span></span>
+                            <input type="password" class="form-control" id="ui_current_password" placeholder="Password" style="border-left: none;">
                         </div> 
-                        <p class="form-text link-primary"  style="text-align:left;width: 100%;">diperlukan untuk mengubah pengaturan anda</p>
+                        <p class="form-text text-muted"  style="text-align:left;width: 100%;">Untuk mengganti konfigurasi pengaturan diperlukan password</p>
                     </div>
-                    <button type="submit" class="btn btn-danger" style="width: 100%;">Simpan</button><br>
+                    <button type="button" onclick="save(this)" class="btn btn-danger" style="width: 100%;">Simpan</button><br>
                     <a class="link-primary" style="margin-top: 8px;" href="/logout">Keluar dari akun ini</a><br>
                     <a class="link-primary" style="margin-top: 5px;" onclick="deleteaccountdialog()">Saya ingin menghapus akun</a>
                 </form>
@@ -367,7 +379,8 @@ if(strlen($core->getImgByUsername($_GET["user"])) < 1 && isset($_COOKIE["email"]
         <h5 class="lay-container-smaller text-center text-center" id="loadsign">Memuat...</h5>
     </div>
     <script>
-        var page = 11
+        var page  = 11
+        var ixcnt = "12345"
         function getDocHeight() {
     var D = document;
     return Math.max(
@@ -375,6 +388,33 @@ if(strlen($core->getImgByUsername($_GET["user"])) < 1 && isset($_COOKIE["email"]
         D.body.offsetHeight, D.documentElement.offsetHeight,
         D.body.clientHeight, D.documentElement.clientHeight
     );
+}
+
+function save(t){
+    change_email(t)
+}
+function change_email(s){
+    verification_code = $(s).parent().find("#ui_verification").val()
+    cpass = $(s).parent().find("#ui_current_password").val()
+    email = $(s).parent().find("#ui_email").val()
+    console.log(verification_code, cpass, email)
+    if(verification_code == ixcnt){
+        $.ajax({
+            url: "/profile/"+"<?=$_GET["user"] ?>",
+            type: "POST",
+            data: {
+                new_email: email,
+                current_password: cpass,
+                change_email: true
+            },
+            success: function (data, status){
+              
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+                error = true
+            }
+        })
+    }
 }
 $("#loadsign").hide()
 var page  = 20
