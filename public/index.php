@@ -121,10 +121,10 @@
                     endif;
                     
                 ?>
-                </div>
+                </div>                                                                                                                                                 
             </div>
             <div class="homepage-left-sidebar mt-1 shadow">
-                <span class="bi bi-newspaper"></span>
+                📰
                 <a href="/login/" class="text-muted sidebar-list">Baca blog kita disini</a><br>
                 <span class="bi bi-megaphone"></span>
                 <a href="/login/" class="text-muted sidebar-list">Ingin beriklan? baca cara beriklan disini</a><br>
