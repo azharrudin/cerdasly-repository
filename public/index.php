@@ -85,8 +85,8 @@
     </template>
 <?= navigationBar(isset($user) ?$user:""); ?>
 <div class="body">
-    <div class="side-left mt-3">
-        <div style="position: fixed;z-index: 999;width: 17%">  
+    <div class="side-left mt-3" >
+        <div style="position: fixed;z-index: 999;width: 17%" id="ui_side_left">  
             <div class="homepage-left-sidebar shadow">
                 <div id="ui_userinfo">
                 <?php
@@ -234,6 +234,89 @@
     </div>    
 </div>
 </div>
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted" >
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3"  id="ui_footer">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3">Cerdasly</i>
+          </h6>
+          <p>
+          Tempat Digital untuk Berbagi dan Belajar Pengetahuan Baru :)
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Produk
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Cerdasly Learn (coming soon)</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Cerdasly Forum</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Cerdasly Fact</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Pricing</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Settings</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Orders</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Help</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Hubungi</h6>
+          <p><i class="fas fa-home me-3"></i> Jakarta Pusat, Petamburan 1 10260, Indonesia</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            contact@cerdasly.com
+          </p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center text-white p-4" style="background-color: rgba(220,53,69,0.8);">
+    <?= date("Y") ?> Copyright:
+    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
 <script>
     $("#ui_userinfo_mobile").html($("#ui_userinfo").html())
     $('#ui_search_question').keypress(function (e) {
@@ -244,6 +327,42 @@
             return false;  
         }
     });  
+    var windw = this;
+$.fn.followTo = function ( elem, elemfrom ) {
+    var $this = this,
+        $window = $(windw),
+        $bumper = $(elem),
+        initalTop = $this.css("top")
+        setPosition = function(){
+            var bumperPos = $(elem).offset().top
+            thisHeight = $window.outerHeight()
+            if ($window.scrollTop() > (bumperPos-thisHeight)) {
+                $this.css({
+                    position: 'absolute',
+                    top: (bumperPos - thisHeight),
+                    "z-index": 0
+                });
+
+
+            } else {
+                
+                $this.css({
+                    position: 'fixed',
+                    top: initalTop
+                });
+
+            }
+        }.bind({elem: elem, $window: $window});
+    $window.resize(function()
+    {
+        bumperPos = pos.offset().top;
+        thisHeight = $this.outerHeight();
+        setPosition();
+    });
+    $window.scroll(setPosition);
+    setPosition();
+};
+$("#ui_side_left").followTo("#ui_footer", $("#ui_left_side"))
     function show_ocr(result){
         Swal.fire({
             html: $("#ui_ocr").html(),

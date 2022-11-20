@@ -46,7 +46,7 @@
             global $userimgdir;
             try {
                 if(!preg_match("/^[0-9a-z\_]+/", $username))
-                    return;
+                    return false;
                 $user     = $this->m->quote(strtolower($username));
                 $email    = $this->m->quote($email);
                 $password = $this->m->quote(password_hash(trim($password), PASSWORD_DEFAULT));
