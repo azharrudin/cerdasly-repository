@@ -26,21 +26,26 @@
             // Validasi username dan kode verifikasi
             //-----------------------------------------
             else if(strlen($_POST["username"]) >= 4 && strlen($_POST["username"]) <= 15 && trim($_POST["code"]) == @$_SESSION["code"]){                
-                $core->createAccount(
+                $f = $core->createAccount(
                     trim($_POST["username"]), 
                     trim($_SESSION["realname"]), 
                     trim($_SESSION["email"]), 
                     trim($_SESSION["password"])
                 );
                 header("Location: /login");
+                if($f == false){
+                $msg             = "Coba periksa kode verifikasi yang kamu masukan atau coba hubungi kami jika masalah terus berlanjut";
+                    
+                }
             }
             else {
                 $msg             = "Coba periksa kode verifikasi yang kamu masukan atau coba hubungi kami jika masalah terus berlanjut";
                 $ctrue           = true;
+                if(strlen($_POST["username"]) > 15){
+                    $msg = "Username (nama pengguna) terlalu panjang, maksimal 15 karakter (huruf kecil/angka/garis bawah)";
+                }
             }
-            if(strlen($_POST["username"]) > 15){
-                $msg = "Username (nama pengguna) terlalu panjang, maksimal 15 karakter (huruf kecil/angka/garis bawah)";
-            }
+           
             $_POST = array();
         }
         if($expr && (!$core->emailExist($_POST["email"])) && $ctrue == false){
