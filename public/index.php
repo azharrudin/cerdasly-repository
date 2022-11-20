@@ -311,8 +311,8 @@
 
   <!-- Copyright -->
   <div class="text-center text-white p-4" style="background-color: rgba(220,53,69,0.8);">
-    <?= date("Y") ?> Copyright:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    <?= date("Y") ?> Copyright -
+    <a class="text-reset fw-bold" href="https://cerdasly.com/">Cerdasly App</a>
   </div>
   <!-- Copyright -->
 </footer>
