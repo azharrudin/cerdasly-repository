@@ -481,7 +481,7 @@ if($is_question_exist == false) http_response_code(404);
                     ['para', ['ul','ol','paragraph']],
                     ['insert', ['picture']],
                 ],
-                disableResizeEditor: true,
+                disableResizeEditor: trueC,
                 callbacks: {
                     onPaste: function (e) {
                         var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');

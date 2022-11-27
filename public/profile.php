@@ -1,8 +1,10 @@
 <?php 
 require_once(__DIR__."/../php/cerdasly.php");
 require_once(__DIR__."/../php/functions.php");
+require_once(__DIR__."/../php/tools/uplib/uplib.php");
 require_once(__DIR__."/components/navbar.php");
 //------------------------------------------------------------------
+$UPLib = new UPLib();
 $core     = new Core();
 $notlogin = false;
 $user     = "";
@@ -149,6 +151,7 @@ if(isset($_POST["change_email"]) && $islogin){
             }
             if($uploadOk){
                 if (move_uploaded_file($_FILES["imgfile"]["tmp_name"], $target_file)){
+                    
                     echo "<script>window.location = window.location</script>";
                 }
             } else {
