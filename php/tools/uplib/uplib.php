@@ -1,6 +1,20 @@
 <?php
+require_once(__DIR__."/../../../vendor/autoload.php");
+use Aws\S3\S3Client;
 define("UPLIB_API_KEY", "EZAe34EvrGXYtNV1029m3LkN10eF");
+define('AWS_KEY', 'AKIAVPPJMR5L3QHNOA5J');
+define('AWS_SECRET_KEY', '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');
 class UPLib {
+  function __construct(){
+    $this->client = new S3Client([
+      'region' => 'ap-southeast-1',
+      'version' => '2006-03-01',
+      'credentials' => [
+          'key' => AWS_KEY,
+          'secret' => AWS_SECRET_KEY
+      ],
+  ]);
+}
   function minifyimage($source_url, $destination_url, $quality){
       $info = getimagesize($source_url);
       if ($info['mime'] == 'image/jpeg') $image = imagecreatefromjpeg($source_url);
@@ -9,7 +23,15 @@ class UPLib {
       imagejpeg($image, $destination_url, $quality);
       return $destination_url;  
   }
-  
+  function uploadimage($file, $key){
+    $this->client->putObject([
+      'Bucket' => 'cerdasly',
+      'Key' => 'he',
+      'Body' => "Hello World!"
+  ]);
+  }
 
 }
+$v=new UPLib();
+$v->uploadimage(0,0);
 ?>
