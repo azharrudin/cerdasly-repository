@@ -1,6 +1,7 @@
 <?php
 require_once(__DIR__."/htmlpurifier.php");
 require_once(__DIR__."/tools/libtools.php");
+require_once(__DIR__."/tools/uplib/uplib.php");
 require_once(__DIR__."/core/comment.php");
 require_once(__DIR__."/core/account.php");
 require_once(__DIR__."/functions.php");
@@ -38,6 +39,7 @@ class Core {
             die("Connection failed: ".$e->getMessage());
         }
         $this->libtools = new Libtools();
+        $this->uplib = new UPLib();
         $this->attachment = $this->libtools->UploadAttachmentTools();
         
     }
@@ -270,7 +272,7 @@ class Core {
         $r = $this->m->query("SELECT img FROM users WHERE email LIKE '$email';");
         $x = $r->fetch();
         if(gettype($x) != "boolean")
-            return "/userimg/".$x["img"].".png";
+            return $this->uplib->geturl($x["img"].".png");
         else return "";
     }
     function getImgCode($email){
@@ -284,7 +286,8 @@ class Core {
         $r = $this->m->query("SELECT img FROM users WHERE username LIKE '$username';");
         $x = $r->fetch();
         if(gettype($x) != "boolean")
-            return "/userimg/".$x["img"].".png";
+        return $this->uplib->geturl("profile_images/".$x["img"].".png");
+
         else 
             return "";
     }

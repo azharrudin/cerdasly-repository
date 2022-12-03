@@ -1,5 +1,6 @@
 <?php  
     require_once(__DIR__."/../../config/config.php");
+    require_once(__DIR__."/../tools/uplib/uplib.php");
     trait accountAction  {
         /**
          * delete user account that existed in database. Return true if success and false if failed.
@@ -58,6 +59,9 @@
                     filesize(__DIR__."/../userimg/template/Anonym.png")
                 ));
                 fclose($f);
+                $UPLib = new UPLib();
+                $UPLib->uploadimage($userimgdir.$c.".png", $c.".png");
+                @unlink($userimgdir.$c.".png");
                 $this->m->exec("
                     INSERT INTO users(
                         username,

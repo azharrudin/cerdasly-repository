@@ -9,9 +9,10 @@ class UPLib {
     $this->client = new S3Client([
       'region' => 'ap-southeast-1',
       'version' => '2006-03-01',
+      "retries" => 0,
       'credentials' => [
-          'key' => AWS_KEY,
-          'secret' => AWS_SECRET_KEY
+          'key' => "AKIAVPPJMR5L3QHNOA5J",
+          'secret' => "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"
       ],
   ]);
 }
@@ -24,14 +25,21 @@ class UPLib {
       return $destination_url;  
   }
   function uploadimage($file, $key){
-    $this->client->putObject([
+    $this->client->putObject(array(
+      'Bucket'       => "cerdasly",
+      'Key'          => $key,
+      'SourceFile'   => $file,
+    
+    ));
+  }
+  function geturl($key){
+    $cmd = $this->client->getCommand('GetObject', [
       'Bucket' => 'cerdasly',
-      'Key' => 'he',
-      'Body' => "Hello World!"
-  ]);
+      'Key'    => $key,
+     ]);
+     $request = $this->client->createPresignedRequest($cmd, '+120 minutes');
+     return  (string) $request->getUri();
   }
 
 }
-$v=new UPLib();
-$v->uploadimage(0,0);
 ?>
