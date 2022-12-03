@@ -60,7 +60,7 @@
                 ));
                 fclose($f);
                 $UPLib = new UPLib();
-                $UPLib->uploadimage($userimgdir.$c.".png", $c.".png");
+                $UPLib->uploadimage($userimgdir.$c.".png", "profile_images/".$c.".png");
                 @unlink($userimgdir.$c.".png");
                 $this->m->exec("
                     INSERT INTO users(
