@@ -136,7 +136,7 @@
                     $.ajax({
                         url: "/notifications.php",
                         data: {
-                            max: max
+                            max: page
                         },
                         type: "GET",
                         success: function (data, status){
