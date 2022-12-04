@@ -13,7 +13,10 @@
         );
         $ctrue = false;
         $msg   = "";
-        if(isset($_POST["username"]) && isset($_POST["code"])){
+        if($expr && (!$core->emailExist($_POST["email"])) && $ctrue == false){
+            session_start();
+         }
+        else if(isset($_POST["username"]) && isset($_POST["code"])){
             session_start();
            
             //-----------------------------------------
@@ -47,9 +50,7 @@
            
             $_POST = array();
         }
-        else if($expr && (!$core->emailExist($_POST["email"])) && $ctrue == false){
-           session_start();
-        }
+       
         //-----------------------------------------
         // Validasi variabel email yang sudah ada
         //-----------------------------------------
