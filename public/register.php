@@ -47,7 +47,7 @@
            
             $_POST = array();
         }
-        if($expr && (!$core->emailExist($_POST["email"])) && $ctrue == false){
+        else if($expr && (!$core->emailExist($_POST["email"])) && $ctrue == false){
            session_start();
         }
         //-----------------------------------------
