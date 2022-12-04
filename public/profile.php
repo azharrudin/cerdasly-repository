@@ -151,6 +151,8 @@ if(isset($_POST["change_email"]) && $islogin){
             }
             if($uploadOk){
                 if (move_uploaded_file($_FILES["imgfile"]["tmp_name"], $target_file)){
+                    $UPLib->minifyimage($target_file, $target_file, 3);
+
                 $UPLib->uploadimage($target_file, "profile_images/".$core->getImgCode($_COOKIE["email"]));
                     @unlink($target_file);
                     echo "<script>window.location = window.location</script>";
