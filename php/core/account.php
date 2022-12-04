@@ -46,7 +46,7 @@
         function createAccount($username, $realname, $email, $password){
             global $userimgdir;
             try {
-                if(!preg_match("/^[0-9a-z\_]+/", $username))
+                if(!preg_match("/^\w+$/", $username))
                     return false;
                 $user     = $this->m->quote(strtolower($username));
                 $email    = $this->m->quote($email);

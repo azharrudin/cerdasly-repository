@@ -32,7 +32,6 @@
                     trim($_SESSION["email"]), 
                     trim($_SESSION["password"])
                 );
-                header("Location: /login");
                 if($f == false){
                 $msg             = "Coba periksa kode verifikasi yang kamu masukan atau coba hubungi kami jika masalah terus berlanjut";
                     
