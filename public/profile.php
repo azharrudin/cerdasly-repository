@@ -151,7 +151,7 @@ if(isset($_POST["change_email"]) && $islogin){
             }
             if($uploadOk){
                 if (move_uploaded_file($_FILES["imgfile"]["tmp_name"], $target_file)){
-                    $UPLib->minifyimage($target_file, $target_file, 3);
+                    $UPLib->minifyimage($target_file, $target_file, 50);
 
                 $UPLib->uploadimage($target_file, "profile_images/".$core->getImgCode($_COOKIE["email"]));
                     @unlink($target_file);
@@ -206,7 +206,7 @@ if(isset($_POST["change_email"]) && $islogin){
                         }
     ?>
                     <div class="cps-overlay">
-                        <span class="bi bi-camera h3" onclick="$('#imgfile').click()" ></span>
+                        <span class="bi bi-camera h3"  id="ui_overlay_camera"></span>
                     </div>
     <?php           
                     endif; 
@@ -395,7 +395,12 @@ if(isset($_POST["change_email"]) && $islogin){
         D.body.clientHeight, D.documentElement.clientHeight
     );
 }
-
+uiovcam()
+    function uiovcam(){
+        $("#ui_overlay_camera").click(function(){
+            $('#imgfile').click()
+        })
+    }
 function save(t){
     change_email(t)
 }
@@ -403,7 +408,6 @@ function change_email(s){
     verification_code = $(s).parent().find("#ui_verification").val()
     cpass = $(s).parent().find("#ui_current_password").val()
     email = $(s).parent().find("#ui_email").val()
-    console.log(verification_code, cpass, email)
     if(verification_code == ixcnt){
         $.ajax({
             url: "/profile/"+"<?=$_GET["user"] ?>",
@@ -575,6 +579,7 @@ $(window).scroll(function() {
                 {
                     $("#imgprofile").html($(data).find("#imgprofile").html()) 
                     $("#imgprofile").animate({ opacity: 1 }, 100);
+                    uiovcam()
                 },
                 complete: function(){
                     $("#imgprofile").animate({ opacity: 1 }, 100);
