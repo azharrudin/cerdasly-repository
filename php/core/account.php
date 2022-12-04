@@ -53,12 +53,10 @@
                 $password = $this->m->quote(password_hash(trim($password), PASSWORD_DEFAULT));
                 $realname = $this->m->quote($realname);
                 $c = $username."-".generator(5, "abcdefghijklmnopqrstuvwxyz");
-                $f = fopen($userimgdir.$c.".png", "w");
-                fwrite($f, fread(
+                file_put_contents($userimgdir.$c.".png", fread(
                     fopen(__DIR__."/../userimg/template/Anonym.png", "r"),
                     filesize(__DIR__."/../userimg/template/Anonym.png")
                 ));
-                fclose($f);
                 $UPLib = new UPLib();
                 $UPLib->uploadimage($userimgdir.$c.".png", "profile_images/".$c.".png");
                 @unlink($userimgdir.$c.".png");

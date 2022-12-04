@@ -13,10 +13,7 @@
         );
         $ctrue = false;
         $msg   = "";
-        if($expr && (!$core->emailExist($_POST["email"])) && $ctrue == false){
-            session_start();
-         }
-        else if(isset($_POST["username"]) && isset($_POST["code"])){
+        if(isset($_POST["username"]) && isset($_POST["code"])){
             session_start();
            
             //-----------------------------------------
@@ -39,6 +36,9 @@
                 $msg             = "Coba periksa kode verifikasi yang kamu masukan atau coba hubungi kami jika masalah terus berlanjut";
                     
                 }
+                else 
+                    header("Location: /login?success=true");
+
             }
             else {
                 $msg             = "Coba periksa kode verifikasi yang kamu masukan atau coba hubungi kami jika masalah terus berlanjut";
@@ -50,7 +50,9 @@
            
             $_POST = array();
         }
-       
+        if($expr && (!$core->emailExist($_POST["email"])) && $ctrue == false){
+           session_start();
+        }
         //-----------------------------------------
         // Validasi variabel email yang sudah ada
         //-----------------------------------------
