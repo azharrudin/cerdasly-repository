@@ -32,6 +32,10 @@ class UPLib {
     
     ));
   }
+  function deleteObject($key){
+    $this->client->deleteObject("cerdasly", $key
+    );
+  }
   function geturl($key){
     $cmd = $this->client->getCommand('GetObject', [
       'Bucket' => 'cerdasly',

@@ -1,7 +1,12 @@
 <?php
     require_once(__DIR__."/../../config/config.php");
     require_once(__DIR__."/../cerdasly.php");
+    require_once(__DIR__."/uplib/uplib.php");
+   
     class UploadAttachmentTools {
+        function __construct(){
+            $this->uplib = new UPLib();
+        }
         function upload_answer_attachment($id){
             if(!isset($_FILES["upload_answer_attachment"])){                    
                 return 'none';
@@ -37,6 +42,9 @@
             if($uploadOk){
 
                 if (move_uploaded_file($_FILES["upload_answer_attachment"]["tmp_name"], $upload_filepath)){
+                    $this->uplib->minifyimage($upload_filepath);
+                    $this->uplib->uploadimage($upload_filepath, "answer_images/".$id.$upload_extfile );
+                    @unlink($upload_filepath);
                     return $id.$upload_extfile;
                 }
             } else {
@@ -46,7 +54,8 @@
             }
         }
         function deleteAnswerAttachment($name){
-            unlink( CRDSLY_ATTACHMENT_ANSWERS_DIR."/".$name);
+            $this->uplib->deleteObject( "answer_images/".$name);
+            
         }
         //------------------------------------------------------------
         function uploadQuestionAttachment($id){
