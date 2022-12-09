@@ -17,7 +17,8 @@ foreach($links as $data){
     echo "<url>";
     echo "<loc>$url/question/".$data['id']."</loc>";
     echo "<lastmod>$m</lastmod>";
-    echo "<priority>1.00</priority>";
+    echo "<priority>1.0</priority>";
+    echo" <changefreq>always</changefreq>";
     echo "</url>";
 }
 echo "</urlset>";
