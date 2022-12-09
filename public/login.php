@@ -45,7 +45,7 @@
     <body>
     <div style="padding-top: 20px;height: 100%;" class="shapedividers_com-4184">
         <center><img
-            src="/cerdasly.png"
+            src="/logo.png"
             height="70"
             alt="Cerdasly Logo"
             loading="lazy"
