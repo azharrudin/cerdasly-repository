@@ -37,9 +37,10 @@ if($is_question_exist == false) http_response_code(404);
     <head>
         <title><?= substr(strip_tags($question["title"]), 0, 60); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="<?= substr(strip_tags($best_answer["answer"]), 0, 150); ?>" name="description"/>
-        <meta content="title" name="<?= substr(strip_tags($question["title"]), 0, 60); ?>">
-        <meta name="robots" content="index, follow">
+        <meta content="<?= substr(strip_tags($best_answer["answer"]), 0, 200); ?>" name="description"/>
+        <meta content="title" name="<?= substr(strip_tags($question["title"]), 0, 65); ?>">
+        <meta name="robots" content="index">
+        <meta name="keywords" content="kunci jawaban, penjelasan, pertanyaan">
         <?= faviconImg() ?>
         <link href="/styles/styles.css" rel="stylesheet">
         <link href="/styles/ui.css" rel="stylesheet">

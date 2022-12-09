@@ -84,6 +84,11 @@
     <head>
         <title>Cerdasly - Bergabunglah Sekarang</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="register cerdasly, daftar cerdasly, cerdasly">
+        <meta name="description" content="ayo gabung cerdasly gratis! lihat lebih banyak jawaban dan penjelasan tugas kamu">
+        <meta name="title" content="Cerdasly - Bergabunglah Sekarang">
+        <meta name="robots" content="index, follow">
+        
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">    
