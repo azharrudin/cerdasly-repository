@@ -459,7 +459,7 @@ if($is_question_exist == false) http_response_code(404);
      data-full-width-responsive="true"></ins>
 
 
-     <footer class="text-center text-lg-start bg-light text-muted fixed-bottom" >
+     <footer class="text-center text-lg-start bg-light text-muted" >
   <!-- Section: Links  -->
   <section class="">
     <div class="container text-center text-md-start mt-5">
@@ -540,9 +540,7 @@ if($is_question_exist == false) http_response_code(404);
   </div>
   <!-- Copyright -->
 </footer>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+
         <script>
             $("#ui_mobile_only_other_question").html($("#ui_other_question").html())
             document.getElementById('attachment_remove').checked = true 
