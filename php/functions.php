@@ -144,6 +144,7 @@ function msgcreate($text){
 }
 function substrwords($str, $n) {
     $words = explode(' ',$str);
+    if(count($words) < 2) return $str;
     $outstr = '';
     for($i=0;$i<$n;$i++){
         $outstr .= $words[$i].' ';
