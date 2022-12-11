@@ -23,14 +23,14 @@
     <title>Cerdasly - Beranda</title>
     <!--- favicon dan thumbnail website --->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tanya dan lihat pertanyaan dan tugas sekolah terbaru dari para pengguna Cerdasly disini">
     <?= faviconImg(); ?>
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cerdasly.com">
     <meta property="og:title" content="Cerdasly Beranda">
-    <meta property="og:description" content="Lihat pertanyaan dan tugas sekolah terbaru dari para pengguna Cerdasly disini">
+    <meta property="og:description" content="Tanya dan lihat pertanyaan dan tugas sekolah terbaru dari para pengguna Cerdasly disini">
     <meta property="og:image" content="/icon/favicon-32x32.png">
     <!--- library dan framework yang dibutuhkan --->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/styles/styles.css" rel="stylesheet">
     <link href="/styles/components.css" rel="stylesheet">
     <link href="/styles/ui.css" rel="stylesheet">
