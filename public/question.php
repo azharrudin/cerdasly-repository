@@ -459,7 +459,7 @@ if($is_question_exist == false) http_response_code(404);
      data-full-width-responsive="true"></ins>
 
 
-     <footer class="text-center text-lg-start bg-light text-muted" >
+     <footer class="text-center text-lg-start bg-light text-muted fixed-bottom" >
   <!-- Section: Links  -->
   <section class="">
     <div class="container text-center text-md-start mt-5">
