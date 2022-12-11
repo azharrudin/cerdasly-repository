@@ -228,9 +228,9 @@ if($is_question_exist == false) http_response_code(404);
             <div id="ui_other_question">
                 <h4>Pertanyaan Baru</h4>
     <?php
-        $recent = $Core->getRecentQuestion(0, 6);
+        $recent = $Core->getRecentQuestion(0, 10);
         foreach($recent as $r){
-            $rAnswer = substr($r["title"], 0, 70);
+            $rAnswer = substr($r["title"], 0, 80);
             if(strlen($r["title"]) > 70){
                 $rAnswer .= "...";
             }
