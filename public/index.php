@@ -106,7 +106,7 @@
                 ?>
                         <div class="ui_circular_wrapper mb-1">
                             <div class="ui_circular_image-x30">
-                                <img onclick="window.location = '/profile/<?= $user ?>'" src="<?= $core->getImgByUsername($user); ?>" class="ui_circled_image-x30" loading="lazy">
+                                <img onclick="window.location = '/profile/<?= $user ?>'" src="<?= $core->getImgByUsername($user); ?>" class="ui_circled_image-x30" loading="lazy" alt="foto profil">
                             </div>
                             <span class="text-muted" onclick="window.location = '/profile/<?= $user ?>'">
                             <?= $core->getRealnameByUsername($user); ?> (<?=  $rank["category"]."-".$rank["star"] ?>)
@@ -140,7 +140,7 @@
                     foreach($bss as $b){
                         $img = $core->getImgByUsername($b["username"]);
                         echo "<div style='display: flex;list-style-type: none;'>
-                                <img style='float: left;' class='userimg' src='$img'/>&nbsp; <li style='max-width: 100%;'><span class='h5'>".$b["realname"]."</span><br><a class='text-muted' href='/profile/".$b["username"]."' style='float: right;'>@".$b["username"]."</a></div></li>";
+                                <img style='float: left;' class='userimg' src='$img' alt='foto profil'/>&nbsp; <li style='max-width: 100%;'><span class='h5'>".$b["realname"]."</span><br><a class='text-muted' href='/profile/".$b["username"]."' style='float: right;'>@".$b["username"]."</a></div></li>";
                     } 
                 ?>
             </div>
@@ -191,7 +191,7 @@
                     <div class="card-question">
                         <div class="ui_circular_wrapper">
                             <div class="ui_circular_image-x30">
-                                <img onclick="window.location = '/profile/<?= $topAnswer['username'] ?>'" src="<?= $core->getImgByUsername($topAnswer['username']); ?>" class="ui_circled_image-x30" loading="lazy">
+                                <img onclick="window.location = '/profile/<?= $topAnswer['username'] ?>'" src="<?= $core->getImgByUsername($topAnswer['username']); ?>" class="ui_circled_image-x30" loading="lazy" alt="Foto Profil">
                             </div>
                             <span class="text-muted" onclick="window.location = '/profile/<?= $topAnswer['username'] ?>'">
                             <?= $core->getRealnameByUsername($topAnswer["username"]); ?> &#183 
