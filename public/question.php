@@ -231,10 +231,11 @@ if($is_question_exist == false) http_response_code(404);
         $recent = $Core->getRecentQuestion(0, 10);
         foreach($recent as $r){
             $rAnswer = substr($r["title"], 0, 80);
-            if(strlen($r["title"]) > 70){
+            $rAnswer = str_replace("<br>", " ", $rAnswer);
+            if(strlen($r["title"]) > 80){
                 $rAnswer .= "...";
             }
-            echo "<div class='other-question'><a href='/question/".$r["id"]."' class='text-muted other-question'>".strip_tags(trim($rAnswer))."</a></div>";
+            echo "<div class='other-question'><a href='/question/".$r["id"]."' class='text-muted other-question'>".strip_tags(trim($rAnswer))."?</a></div>";
         }
     ?>
             </div>
