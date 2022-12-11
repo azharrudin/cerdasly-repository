@@ -142,6 +142,14 @@ function msgcreate($text){
                 <p class="card-text">'.$text.'</p>
             </div>' : '';
 }
+function substrwords($str, $n) {
+    $words = explode(' ',$str);
+    $outstr = '';
+    for($i=0;$i<$n;$i++){
+        $outstr .= $words[$i].' ';
+    }
+    return ltrim($outstr);
+}
 /*-------------------------------------------------------------------------------
  * > used to get ranks based on total voted answer
  *-------------------------------------------------------------------------------
