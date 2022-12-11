@@ -105,7 +105,7 @@ if($is_question_exist == false) http_response_code(404);
                 margin-bottom:10px;
             }
             .side-left-height {
-                min-height: 89vh;
+                min-height: 95vh;
             }
             @media (max-width: 460px) and (min-width: 200px){
                 .side-left-height {
