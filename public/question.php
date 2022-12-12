@@ -42,6 +42,7 @@ if($is_question_exist == false) http_response_code(404);
         <meta name="robots" content="index">
         <meta name="keywords" content="kunci jawaban, penjelasan, pertanyaan">
         <?= faviconImg() ?>
+        <link href="https://cerdasly.com/question/<?= strip_tags($_GET["id"]) ?>"  rel="canonical">
         <link href="/styles/styles.css" rel="stylesheet">
         <link href="/styles/ui.css" rel="stylesheet">
         <link href="/styles/components.css" rel="stylesheet">
@@ -110,7 +111,7 @@ if($is_question_exist == false) http_response_code(404);
             @media (max-width: 460px) and (min-width: 200px){
                 .side-left-height {
                     min-height:auto;
-                }   
+                }
             }
         </style>
     </head>
@@ -258,7 +259,7 @@ if($is_question_exist == false) http_response_code(404);
                     </div>
                     <div class="ui_circular_wrapper">
                         <div class="ui_circular_image-x30">
-                            <img onclick="window.location = '/profile/<?= $v['username'] ?>'" src="<?= $Core->getImgByUsername($v['username']); ?>" class="ui_circled_image-x30">
+                            <img onclick="window.location = '/profile/<?= $v['username'] ?>'" src="<?= $Core->getImgByUsername($v['username']); ?>" class="ui_circled_image-x30" width="Aa">
                         </div>
                         <span class="text-muted" onclick="window.location = '/profile/<?= $v['username'] ?>'">
                             <?= $realname." &#183; ".getndate($v["postdate"]); ?>
