@@ -259,7 +259,7 @@ if($is_question_exist == false) http_response_code(404);
                     </div>
                     <div class="ui_circular_wrapper">
                         <div class="ui_circular_image-x30">
-                            <img onclick="window.location = '/profile/<?= $v['username'] ?>'" src="<?= $Core->getImgByUsername($v['username']); ?>" class="ui_circled_image-x30" width="Aa">
+                            <img onclick="window.location = '/profile/<?= $v['username'] ?>'"  height=30 width=30 src="<?= $Core->getImgByUsername($v['username']); ?>" class="ui_circled_image-x30">
                         </div>
                         <span class="text-muted" onclick="window.location = '/profile/<?= $v['username'] ?>'">
                             <?= $realname." &#183; ".getndate($v["postdate"]); ?>
@@ -337,7 +337,6 @@ if($is_question_exist == false) http_response_code(404);
                         $answererRealname = $Core->getRealnameByUsername($m["username"]);
     ?>
             <div class="answer-box">
-   
                 <div class="list-card-x <?= intval($Core->getVoted(trim($m["id"]))) > 0 ? 'border-danger':'' ?>" style="word-wrap: break-word;z-index: 2;" >
                     <img src="<?= $Core->getImgByUsername($m['username']); ?>" height=30 width=30 style="margin-right: 3px;" class="ui_profile_icon-x30">
                     <span class="text-muted" onclick="window.location = '/profile/<?= $m['username']?>'">
