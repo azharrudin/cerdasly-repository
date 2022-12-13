@@ -35,10 +35,10 @@ if($is_question_exist == false) http_response_code(404);
 <!DOCTYPE html>
 <html>
     <head>
-        <title><?= substrwords(strip_tags($question["title"]), 10); ?></title>
+        <title><?= strlen($question["title"]) < 1 ? $question["title"] : substrwords(strip_tags($question["title"]), 10); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="<?= substrwords(strip_tags($best_answer["answer"]), 30); ?>" name="description"/>
-        <meta content="title" name="<?= substrwords(strip_tags($question["title"]), 10); ?>">
+        <meta content="title" name="<?= strlen($question["title"]) < 1 ? $question["title"] : substrwords(strip_tags($question["title"]), 10); ?>">
         <meta name="robots" content="index">
         <meta name="keywords" content="kunci jawaban, penjelasan, pertanyaan">
         <?= faviconImg() ?>
