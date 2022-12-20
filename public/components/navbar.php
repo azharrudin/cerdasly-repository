@@ -22,6 +22,10 @@ function navigationBar($user, $space = true){
                 />
              
                 $login_button
+                
+                <a style="float: right;$profile_image_exist" href="/profile/" id="profile" class="ui_circular_image-x35">
+                    $profile_image_button
+                </a>
                 <a class="btn btn-danger btn-sm" type="button"  href="/ask" style="float: right;margin-right: 5px; ">
                     Bertanya
                 </a>
@@ -31,11 +35,7 @@ function navigationBar($user, $space = true){
                     $unreadNotificationsTotal</span>
                       <span class="visually-hidden">unread messages</span>
                 </span></div>
-                <a style="float: right;$profile_image_exist" href="/profile/" id="profile" class="ui_circular_image-x35">
-                    $profile_image_button
-                    
-                </a>
-                
+               
                 <div class="lay-mobile-only w-100" style="overflow-x: scroll;background: white;margin-bottom: 4px;height: fixed;position: fixed;z-index: 999;border-top: 1px solid rgb(230, 230, 230);border-bottom: 1px solid rgb(230, 230, 230)">
                     <button class="ui_mobile_navigation"><h4><a href="/" class="text-muted"><span class="bi bi-house-door"></span></a></h4></button>
                     <button class="ui_mobile_navigation"><h4><a  onclick="ui_ranklist()" class="text-muted"><span class="bi bi-trophy"></span></a></h4></button>
