@@ -99,6 +99,9 @@ if($is_question_exist == false) http_response_code(404);
                 background-color: white;
                 border: 2px solid rgb(230, 230, 230);
             }
+            .ui_hidden {
+                visibility: hidden;
+            }
             .other-question {
                 max-width: 100%;
                 position: relative;
@@ -260,6 +263,7 @@ if($is_question_exist == false) http_response_code(404);
                 </div>
             </div>
             <div class="question-box">
+                <h1 class="ui_hidden"><?= substrwords(strip_tags($question["title"]), 10);?></h1>
                 <div class="list-card-x" style="background: white;border-radius: 6px;">
                     <div style="margin-bottom: 5px;margin-top: 5px;">
                         <span class="<?= categorytoicon($v['category']); ?> link-danger">
