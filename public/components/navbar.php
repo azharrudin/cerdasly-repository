@@ -20,23 +20,35 @@ function navigationBar($user, $space = true){
                     loading="lazy"
                     id="logo"
                 />
+             
                 $login_button
+                <a class="btn btn-danger btn-sm" type="button"  href="/ask" style="float: right;margin-right: 5px; ">
+                    Bertanya
+                </a>
+                <span class='desktop-only' style="float: right;margin-right: 10px;"> <button class="position-relative ui_mobile_navigation-b ">
+                    <h4 class="bi bi-bell"></h4>
+                    <span class="position-absolute translate-middle badge rounded-pill bg-danger" style="top: 10px;left: 23px;">
+                    $unreadNotificationsTotal</span>
+                      <span class="visually-hidden">unread messages</span>
+                </span></div>
                 <a style="float: right;$profile_image_exist" href="/profile/" id="profile" class="ui_circular_image-x35">
                     $profile_image_button
+                    
                 </a>
-                <div class="ui_navbar_right_side">
-                    <a href="/notifications"><span class="bi bi-bell ui_navbar_notification_bell"></span></a>
-                    <a class="btn btn-danger btn-sm" type="button"  href="/ask">
-                        Bertanya
-                    </a>
-                    <span class="badge badge-pill badge-danger ui_navbar_notification_badge">$unreadNotificationsTotal</span>
-                </div>      
+                
                 <div class="lay-mobile-only w-100" style="overflow-x: scroll;background: white;margin-bottom: 4px;height: fixed;position: fixed;z-index: 999;border-top: 1px solid rgb(230, 230, 230);border-bottom: 1px solid rgb(230, 230, 230)">
                     <button class="ui_mobile_navigation"><h4><a href="/" class="text-muted"><span class="bi bi-house-door"></span></a></h4></button>
                     <button class="ui_mobile_navigation"><h4><a  onclick="ui_ranklist()" class="text-muted"><span class="bi bi-trophy"></span></a></h4></button>
                     <button class="ui_mobile_navigation"><h4><a class="text-muted"><span class="bi bi-newspaper"></span></a></h4></button>
-                    <button class="ui_mobile_navigation"><h4><a><span class="bi bi-search"></span></a></h4></button>
+                    <span> <button class="position-relative ui_mobile_navigation-b">
+                    <h4 class="bi bi-bell"></h4>
+                    <span class="position-absolute translate-middle badge rounded-pill bg-danger" style="top: 10px;left: 23px;">
+                    $unreadNotificationsTotal
+                      <span class="visually-hidden">unread messages</span>
+                    </span>
+                    </button></span>
                 </div>    
+                
             </div>
             $space
         EOF;

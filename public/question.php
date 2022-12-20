@@ -38,7 +38,7 @@ if($is_question_exist == false) http_response_code(404);
         <title><?= strlen($question["title"]) == false ? "Pertanyaan tidak ditemukan" : substrwords(strip_tags($question["title"]), 10); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="<?= substrwords(strip_tags($best_answer["answer"]), 30); ?>" name="description"/>
-        <meta content="title" name="<?= strlen($question["title"]) == false ? "Pertanyaan tidak ditemukan" : substrwords(strip_tags($question["title"]), 10); ?>">
+        <meta content="<?= strlen($question["title"]) == false ? "Pertanyaan tidak ditemukan" : substrwords(strip_tags($question["title"]), 10); ?>" name="title">
         <meta name="robots" content="index">
         <meta name="keywords" content="kunci jawaban, penjelasan, pertanyaan">
         <?= faviconImg() ?>
@@ -250,6 +250,15 @@ if($is_question_exist == false) http_response_code(404);
             </div>
         </div>
         <div class="side-right side-left-height" id="sideright">
+            <div class="card-question desktop-content-container shadow list-card-x desktop-only" style="border-radius: 5px;z-index: 999;" id="searchbox">
+                <div class="form-group mb-0">
+                    <div class="input-group cps-input-group">
+                        <span  onclick='$("#ocr_upload_form").click()' class="input-group-addon"><span class="bi bi-search-fill"></span></span>
+                        <input class="form-control" placeholder="Tugas anda atau pertanyaan anda" style="border-left: none;" id="ui_search_question">
+                    </div> 
+                   <input type="file" id="ocr_upload_form" style="display: none;" onclick="this.value = null" onchange="preview_image(event)">
+                </div>
+            </div>
             <div class="question-box">
                 <div class="list-card-x" style="background: white;border-radius: 6px;">
                     <div style="margin-bottom: 5px;margin-top: 5px;">

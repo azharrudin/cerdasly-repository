@@ -152,7 +152,6 @@
 
         </div>
         <div class="card-question desktop-content-container shadow" style="border-radius: 5px;z-index: 999;" id="searchbox">
-               
                 <div class="form-group mb-0">
                     <div class="input-group cps-input-group">
                         <span  onclick='$("#ocr_upload_form").click()' class="input-group-addon"><span class="bi bi-camera-fill"></span></span>
