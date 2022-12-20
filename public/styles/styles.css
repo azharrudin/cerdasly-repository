@@ -52,7 +52,7 @@
 }
 @media (max-width: 900px) and (min-width: 460px){
     .ui_navspace {
-        margin-top: 84px;
+        margin-top: 45 px;
     }
     .lay-container {
         max-width: 70%;
@@ -89,10 +89,13 @@
     .lay_button_login {
         margin-right: 5vw;
     }
+    .desktop-only {
+        display: none;
+    }
 }
 @media (max-width: 460px) and (min-width: 200px){
     .ui_navspace {
-        margin-top: 84px;
+        margin-top: 45px;
     }
     .lay-container {
         max-width: 100%;
