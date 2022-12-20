@@ -101,6 +101,7 @@ if($is_question_exist == false) http_response_code(404);
             }
             .ui_hidden {
                 visibility: hidden;
+                height: 0px;
             }
             .other-question {
                 max-width: 100%;
