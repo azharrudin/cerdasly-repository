@@ -33,6 +33,9 @@ class UPLib {
     ));
   }
   function deleteObject($key){
+    if($key == "answer_images/none"){
+      return;
+    }
     $this->client->deleteObject("cerdasly", $key
     );
   }
