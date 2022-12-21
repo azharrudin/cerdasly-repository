@@ -143,6 +143,8 @@ function msgcreate($text){
             </div>' : '';
 }
 function substrwords($str, $n, $cap = false) {
+    if($cap) $words = ucfirst($str);
+
     $words = explode(' ',$str);
     if(count($words) < 2) return $str;
     $outstr = '';
