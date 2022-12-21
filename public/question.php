@@ -37,7 +37,7 @@ if($is_question_exist == false) http_response_code(404);
     <head>
         <title><?= strlen($question["title"]) == false ? "Pertanyaan tidak ditemukan" : substrwords(strip_tags($question["title"]), 10); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="<?= substrwords(strip_tags($best_answer["answer"]), 30); ?>" name="description"/>
+        <meta content="<?=  strlen($question["title"]) == false ? "Pertanyaan tidak ditemukan" : substrwords(strip_tags($best_answer["answer"]), 30); ?>" name="description"/>
         <meta content="<?= strlen($question["title"]) == false ? "Pertanyaan tidak ditemukan" : substrwords(strip_tags($question["title"]), 10); ?>" name="title">
         <meta name="robots" content="index">
         <meta name="keywords" content="kunci jawaban, penjelasan, pertanyaan">
