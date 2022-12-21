@@ -36,7 +36,7 @@ function navigationBar($user, $space = true){
                       <span class="visually-hidden">unread messages</span>
                 </span></div>
                
-                <div class="lay-mobile-only w-100" style="overflow-x: scroll;background: white;margin-bottom: 4px;height: fixed;position: fixed;z-index: 999;border-top: 1px solid rgb(230, 230, 230);border-bottom: 1px solid rgb(230, 230, 230)">
+                <div class="lay-mobile-only w-100" style="background: white;margin-bottom: 4px;height: fixed;position: fixed;z-index: 999;border-top: 1px solid rgb(230, 230, 230);border-bottom: 1px solid rgb(230, 230, 230);width: 100vw">
                     <button class="ui_mobile_navigation"><h4><a href="/" class="text-muted"><span class="bi bi-house-door"></span></a></h4></button>
                     <button class="ui_mobile_navigation"><h4><a  onclick="ui_ranklist()" class="text-muted"><span class="bi bi-trophy"></span></a></h4></button>
                     <button class="ui_mobile_navigation"><h4><a class="text-muted"><span class="bi bi-newspaper"></span></a></h4></button>
@@ -44,7 +44,6 @@ function navigationBar($user, $space = true){
                     <h4 class="bi bi-bell"></h4>
                     <span class="position-absolute translate-middle badge rounded-pill bg-danger" style="top: 10px;left: 23px;">
                     $unreadNotificationsTotal
-                      <span class="visually-hidden">unread messages</span>
                     </span>
                     </button></span>
                 </div>    

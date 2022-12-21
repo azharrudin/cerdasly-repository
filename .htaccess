@@ -17,7 +17,7 @@ ReWriteRule ^/?publicapi/(.*)$ /public/api/publicapi.php?$1 [L]
 
 ReWriteRule ^/?finduser$ /public/finduser.php [L]
 ReWriteRule ^/?resetpass$ /public/resetpass.php [L]
-ReWriteRule ^/?test$ /php/tools/uplib/uplib.php [L]
+ReWriteRule ^/?help/(.*)$ /public/pages/help/$1 [L]
 
 
 ReWriteRule ^/?userimg/(.*) /data/userimg/$1 [L]
