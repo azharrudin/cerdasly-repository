@@ -142,11 +142,13 @@ function msgcreate($text){
                 <p class="card-text">'.$text.'</p>
             </div>' : '';
 }
-function substrwords($str, $n) {
+function substrwords($str, $n, $cap = false) {
     $words = explode(' ',$str);
     if(count($words) < 2) return $str;
     $outstr = '';
     for($i=0;$i<$n;$i++){
+        if($cap)
+            $words[$i] = ucfirst($words[$i]);
         $outstr .= $words[$i].' ';
     }
     return ltrim($outstr);
