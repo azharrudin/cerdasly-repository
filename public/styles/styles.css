@@ -95,7 +95,7 @@
 }
 @media (max-width: 460px) and (min-width: 200px){
     .ui_navspace {
-        margin-top: 45px;
+        padding-top: 45px;
     }
     .lay-container {
         max-width: 100%;

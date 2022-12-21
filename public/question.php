@@ -123,6 +123,7 @@ if($is_question_exist == false) http_response_code(404);
     <body>
         <?= navigationBar(isset($user) ? $user:""); ?>
         <div id="errorpopup" style="display: none"></div>
+        <div style="padding-top: 45px;">
         <div  class="lay-mobile-only ui_question_search">
             <div class="form-group " style="margin-bottom: 5px;">
                 <div class="input-group cps-input-group">
@@ -130,6 +131,7 @@ if($is_question_exist == false) http_response_code(404);
                     <input class="form-control" style="border-right: none;border-left: 1px" id="ui_question_search" placeholder="cari pertanyaan atau tugas anda disini..." name="email">
                 </div> 
             </div>
+        </div>
         </div>
     <?php
         if($is_question_exist != false):

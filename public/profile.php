@@ -177,7 +177,7 @@ if(isset($_POST["change_email"]) && $islogin){
         if(gettype($notlogin) != "boolean")
             die($notlogin);
     ?>
-    <div id="dm-accdel">
+    <div id="dm-accdel" style="padding-top: 50px;">
 
     </div>
     <form method="POST" action="#" enctypnave="multipart/form-data" id="imgupload">
