@@ -93,7 +93,7 @@
                     if(!$islogin):
                 ?>
                     <div>
-                        <a class="text text-primary mb-1 mt-1 w-100" href="/login">
+                        <a class="text text-primary mb-1 w-100" href="/login">
                             Klik disini untuk masuk
                         </a>
                     </div>
@@ -123,7 +123,7 @@
                 ?>
                 </div>                                                                                                                                                 
             </div>
-            <div class="homepage-left-sidebar mt-1 shadow">
+            <div class="homepage-left-sidebar mt-1 shadow" >
                 📰
                 <a href="/login/" class="text-muted sidebar-list">Baca blog kita disini</a><br>
                 <span class="bi bi-megaphone"></span>
@@ -148,7 +148,7 @@
     </div>
     <div class="side-right">
         <div>  
-        <div class="desktop-content-container lay-mobile-only homepage-left-sidebar shadow" id="ui_userinfo_mobile">
+        <div class="desktop-content-container lay-mobile-only homepage-left-sidebar shadow" id="ui_userinfo_mobile"  style="margin-top: 45px;">
 
         </div>
         <div class="card-question desktop-content-container shadow" style="border-radius: 5px;z-index: 999;" id="searchbox">
