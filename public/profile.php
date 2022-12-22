@@ -71,7 +71,7 @@ if(isset($_POST["change_email"]) && $islogin){
         <meta name="msapplication-TileColor" content="#603cba">
         <meta name="theme-color" content="#ffffff">
         <!--- library dan framework yang dibutuhkan --->
-        <link href="/styles/styles.css" rel="stylesheet">
+        <link href="/styles/styles.css" rel="stylesheet"> 
         <link href="/styles/ui.css" rel="stylesheet">
         <link href="/styles/components.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
