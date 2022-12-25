@@ -39,6 +39,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content=" <?= isset($answer["answer"]) ? substr(strip_tags($answer["answer"]),0, 300) : "Jawaban Tidak ada" ?>">    
         <meta name="robots" content="noindex, nofollow">
+        
         <link href="/styles/styles.css" rel="stylesheet">
         <link href="/styles/components.css" rel="stylesheet">
         <link href="/styles/ui.css" rel="stylesheet">
