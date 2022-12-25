@@ -1,5 +1,5 @@
 DirectoryIndex /public/index.php
-RewriteEngine on
+RewriteEngine on 
 
 RewriteRule ^sitemap\.xml/?$ /public/sitemap.php
 
