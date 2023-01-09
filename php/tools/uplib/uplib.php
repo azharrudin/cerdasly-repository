@@ -5,6 +5,7 @@ define("UPLIB_API_KEY", "EZAe34EvrGXYtNV1029m3LkN10eF");
 define('AWS_KEY', 'AKIAVPPJMR5L3QHNOA5J');
 define('AWS_SECRET_KEY', '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');
 class UPLib {
+  public $client;
   function __construct(){
     $this->client = new S3Client([
       'region' => 'ap-southeast-1',

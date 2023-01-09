@@ -26,6 +26,11 @@ function buildregex($query){
     return $regex;
 }
 class Core {
+    public $m;
+    public $attachment;
+    public $uplib;
+    public $libtools;
+
     /**
      * construct() - untuk membangun konstruksi kelas Core
      */

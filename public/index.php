@@ -354,6 +354,7 @@ $.fn.followTo = function ( elem, elemfrom ) {
         }.bind({elem: elem, $window: $window});
     $window.resize(function()
     {
+        if(pos == undefined) return
         bumperPos = pos.offset().top;
         thisHeight = $this.outerHeight();
         setPosition();

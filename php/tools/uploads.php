@@ -4,6 +4,7 @@
     require_once(__DIR__."/uplib/uplib.php");
    
     class UploadAttachmentTools {
+        public $uplib;
         function __construct(){
             $this->uplib = new UPLib();
         }
@@ -42,7 +43,7 @@
             if($uploadOk){
 
                 if (move_uploaded_file($_FILES["upload_answer_attachment"]["tmp_name"], $upload_filepath)){
-                    $this->uplib->minifyimage($upload_filepath);
+                    $this->uplib->minifyimage($upload_filepath, $upload_filepath, 20);
                     $this->uplib->uploadimage($upload_filepath, "answer_images/".$id.$upload_extfile );
                     @unlink($upload_filepath);
                     return $id.$upload_extfile;
