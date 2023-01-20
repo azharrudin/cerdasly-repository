@@ -12,7 +12,7 @@ function navigationBar($user, $space = true){
     $unreadNotificationsTotal = count($core->getUnreadNotifications($user)); 
     $space = $space ? '<div class="ui_navspace"></div>' : "";
     return <<<EOF
-            <div class="fixed-top ui_navbar navbar-fixed-top" style="item-align: center;width: 100%;z-index:999;">
+            <div class="fixed-top ui_navbar navbar-fixed-top" style="item-align: center;width: 100%;z-index:999;  box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);">
                 <img
                     src="/logo.png"
                     height="40"
