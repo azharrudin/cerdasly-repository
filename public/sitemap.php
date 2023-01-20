@@ -22,4 +22,3 @@ foreach($links as $data){
     echo "</url>";
 }
 echo "</urlset>";
-?>
