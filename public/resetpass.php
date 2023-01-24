@@ -4,7 +4,7 @@ require_once(__DIR__ . "/../php/functions.php");
 require_once(__DIR__ . "/../php/email.php");
 $core      = new Core();
 $x         = "";
-$islogin   = false;
+$islogin       = false;
 $changepw      = false;
 $message_alert = "";
 if (isset($_POST["email"]) && isset($_POST["pass"])) {
@@ -65,7 +65,7 @@ if (isset($_POST["recovery_newpass"]) && isset($_POST["recovery_code"])) {
                     <small class="text-muted">Ketik Email anda dengan benar karena kami akan mengirim notifikasi konfirmasi kepada anda</small>
                 </div>
                 <?php
-                if ($changepw) :
+                if ($changepw):
                 ?>
                     <div class="form-group">
                         <div class="input-group cps-input-group">

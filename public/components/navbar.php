@@ -20,15 +20,22 @@ function navigationBar($user, $space = true){
                     loading="lazy"
                     id="logo"
                 />
-             
-                $login_button
                 
+                $login_button
+                  
                 <a style="float: right;$profile_image_exist" href="/profile/" id="profile" class="ui_circular_image-x35">
                     $profile_image_button
                 </a>
-                <a class="btn btn-danger btn-sm" type="button"  href="/ask" style="float: right;margin-right: 5px; ">
-                    Bertanya
-                </a>
+               
+                <button class="btn mt-1" type="button"  href="/ask" style="float: right;margin-right: 5px;border: none;background: none; ">
+                    Ajukan pertanyaan
+                </button>
+                 <span style="float: right;$profile_image_exist">
+                    <button style="background: none;border: none"><h4><a href="/" class="text-muted"><span class="bi bi-house-door"></span></a></h4></button>
+                    <button style="background: none;border: none"><h4><a onclick="ui_ranklist()" class="text-muted"><span class="bi bi-trophy"></span></a></h4></button>
+                    <button style="background: none;border: none"><h4><a href="/help/" class="text-muted"><span class="bi bi-newspaper"></span></a></h4></button>
+            
+                </span>
                 <span class='desktop-only' style="float: right;margin-right: 10px;"> <button class="position-relative ui_mobile_navigation-b ">
                     <h4 class="bi bi-bell"></h4>
                     <span class="position-absolute translate-middle badge rounded-pill bg-danger" style="top: 10px;left: 23px;">

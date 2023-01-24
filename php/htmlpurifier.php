@@ -1,4 +1,4 @@
-<?php
+<!--  --><?php
 require_once(__DIR__ . "/../vendor/ezyang/htmlpurifier/library/HTMLPurifier.auto.php");
 function htmlpurify($dirty_html){
     $config   = HTMLPurifier_Config::createDefault();

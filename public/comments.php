@@ -178,6 +178,7 @@ if (isset($_POST["comment_delete"]) && isset($_POST["comment_id"]) && $UserLogin
     <?php
     endif;
     ?>
+    
 </body>
 <script>
     function getDocHeight() {

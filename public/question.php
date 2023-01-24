@@ -57,6 +57,7 @@ if ($is_question_exist == false) http_response_code(404);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
     <script src="/js/clipper.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6098201334142651" crossorigin="anonymous"></script>
     <script>
         const Popup = Swal.mixin({
@@ -68,6 +69,29 @@ if ($is_question_exist == false) http_response_code(404);
     </script>
     <script src="/js/ui.js"></script>
     <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .desc {
+            padding: 15px;
+            text-align: center;
+        }
+
         .swal2-popup {
             font-size: 1rem;
         }
@@ -103,7 +127,7 @@ if ($is_question_exist == false) http_response_code(404);
             margin-top: 1px;
             border-radius: 5px;
             background-color: white;
-            box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+            box-shadow: 0 2px 3px rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .1);
             border: 2px solid rgb(230, 230, 230);
         }
 
@@ -121,7 +145,7 @@ if ($is_question_exist == false) http_response_code(404);
         }
 
         .side-left-height {
-            min-height: 120vh;
+            min-height: 150vh;
         }
 
         @media (max-width: 460px) and (min-width: 200px) {
@@ -258,7 +282,7 @@ if ($is_question_exist == false) http_response_code(404);
                     if (strlen($r["title"]) > 80) {
                         $rAnswer .= "...";
                     }
-                    echo "<div class='other-question'><a href='/question/" . $r["id"] . "' class='text-muted other-question'>" . strip_tags(trim($rAnswer)) . "?</a></div>";
+                    echo "<div class='other-question card-question'><a href='/question/" . $r["id"] . "' class='text-muted other-question'>" . strip_tags(trim($rAnswer)) . "?</a><i> (" . getndate($r["postdate"]) . ")</i></div>";
                 }
                 ?>
             </div>
@@ -496,7 +520,7 @@ if ($is_question_exist == false) http_response_code(404);
                                 <i class="fas fa-gem me-3">Cerdasly</i>
                             </h6>
                             <p>
-                                Tempat Digital untuk Berbagi dan Belajar Pengetahuan Baru :)
+                            <h4>Belajar ilmu pengetahuan dari pelajar dan untuk pelajar</h4>
                             </p>
                         </div>
                         <!-- Grid column -->

@@ -78,7 +78,6 @@ if (isset($_POST["login_email"]) && isset($_POST["login_password"])) {
             </center>
         </div>
     </div>
-
     <script>
         function viewPassword() {
             if ($("#password").attr("type") == "password") {

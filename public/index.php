@@ -45,6 +45,7 @@ endif;
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <script src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/clipper.js"></script>
     <script>
@@ -70,6 +71,10 @@ endif;
         .ui_name_label {
             margin-left: 5px;
         }
+
+        .ui_ocr_preview {
+            max-width: 30vw;
+        }
     </style>
 </head>
 <?php
@@ -83,7 +88,7 @@ if (isset($_GET["search"]))
         <p class="text-muted">Potong gambar sejelas mungkin, semakin jelas semakin baik, jangan upload gambar besar (eg. satu halaman)</p>
         <button id="ui_ocr_scan_button" class="btn btn-primary mb-3">scan</button>
         <div>
-            <img id="ui_ocr_preview" style="max-width: 20vh;max-width: 30vw">
+            <img id="ui_ocr_preview" class="ui_ocr_preview">
         </div>
     </template>
     <?= navigationBar(isset($user) ? $user : ""); ?>
@@ -92,6 +97,7 @@ if (isset($_GET["search"]))
             <div style="position: fixed;z-index: 999;width: 17%" id="ui_side_left">
                 <div class="homepage-left-sidebar shadow">
                     <div id="ui_userinfo">
+
                         <?php
                         if (!$islogin) :
                         ?>
@@ -106,6 +112,7 @@ if (isset($_GET["search"]))
                             $total_question = $core->m->query("SELECT count(*) AS names FROM questions WHERE `username` LIKE " . $core->m->quote($user))->fetch()["names"];
                             $total_answer   = $core->getAnswerCountByUsername($user)[0]["total"];
                             $rank = getranks($total_voted_answer, $total_answer, $total_question);
+                            $ttl  = ($total_answer+$total_question) * ($total_voted_answer);
                         ?>
                             <div class="ui_circular_wrapper mb-1">
                                 <div class="ui_circular_image-x30">
@@ -116,10 +123,13 @@ if (isset($_GET["search"]))
                                 </span>
                             </div>
 
-                            <span class="text-muted">›› <?= $total_answer ?> Jawaban</span><br>
-                            <span class="text-muted">›› <?= $core->m->query("SELECT count(*) AS names FROM comments WHERE `username` LIKE " . $core->m->quote($user))->fetch()["names"] ?> Komentar</span><br>
-                            <span class="text-muted ">›› <?= $total_question ?> Pertanyaan</span>
-                            <br><a class="text-primary">Profil Saya</a>
+                            <span class="text-muted"><i class="las la-pen" style="font-size: 20px;color: red;"></i> <?= $total_answer ?> Jawaban</span><br>
+                            <span class="text-muted"><i class="las la-comment" style="font-size: 20px;color: blue;"></i> <?= $core->m->query("SELECT count(*) AS names FROM comments WHERE `username` LIKE " . $core->m->quote($user))->fetch()["names"] ?> Komentar</span><br>
+                            <span class="text-muted "><i class="lar la-question-circle" style="font-size: 20px;color: green;"></i> <?= $total_question ?> Pertanyaan</span>
+                            <br><br><div style="display: flex;"><b class="ml-2 p-2 text-dark" style="background-color:moccasin;border-radius: 10px;"><?= strtoupper($rank["category"]) ?>  <?= $rank["star"] ?></b> 
+                            <span class="p-2"><?= $ttl ?> points</span>
+                        </div>
+
                         <?php
                         endif;
 
@@ -237,7 +247,7 @@ if (isset($_GET["search"]))
     </div>
     </div>
     <!-- Footer -->
-    <footer class="text-center text-lg-start bg-light text-muted">
+    <footer class="text-center text-lg-start text-muted">
         <!-- Section: Links  -->
         <section class="">
             <div class="container text-center text-md-start mt-5">

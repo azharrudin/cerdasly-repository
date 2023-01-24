@@ -161,73 +161,73 @@ function getranks($totalvoted, $totalanswers, $totalquestion){
     $total = ($totalanswers+$totalquestion) * ($totalvoted);
     if($total < 30){
         return array(
-            "category" => "newbie",
+            "category" => "esde",
             "star" => 1
         );
     }
     else if($total < 60){
         return array(
-            "category" => "newbie",
+            "category" => "esde",
             "star" => 2
         );
     }
     else if($total < 90){
         return array(
-            "category" => "newbie",
+            "category" => "esde",
             "star" => 3
         );
     }
     else if($total < 120){
         return array(
-            "category" => "amatir",
+            "category" => "esde",
             "star" => 1
         );
     }
     else if($total < 150){
         return array(
-            "category" => "amatir",
+            "category" => "esempe",
             "star" => 2
         );
     }
     else if($total < 180){
         return array(
-            "category" => "amatir",
+            "category" => "esempeh",
             "star" => 3
         );
     }
     else if($total < 210){
         return array(
-            "category" => "master",
+            "category" => "esempeh",
             "star" => 1
         );
     }
     else if($total < 240){
         return array(
-            "category" => "master",
+            "category" => "esempeh",
             "star" => 2
         );
     }
     else if($total < 270){
         return array(
-            "category" => "master",
+            "category" => "esemah",
             "star" => 3
         );
     }
     else if($total < 300){
         return array(
-            "category" => "grandmaster",
+            "category" => "esemah",
             "star" => 1
         );
     }
     else if($total < 330){
         return array(
-            "category" => "grandmaster",
+            "category" => "esemah",
             "star" => 3
         );
     }
     else if($total > 370){
         return array(
-            "category" => "expert",
+            "category" => "murid kesayangan",
             "star" => 0
         );
     }
