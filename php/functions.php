@@ -129,6 +129,35 @@ function categorytoicon($cat){
     else 
         return "bi-globe";
 }
+/*-------------------------------------------------------------------------------
+ * > used to convert category into icon8
+ *-------------------------------------------------------------------------------
+ */
+function categorytoicon8($cat){
+    $cat = strtolower($cat);
+    if(preg_match("/(sosial|hukum|politik|ppkn)/",  $cat))
+        return array("las la-balance-scale", "blue");
+    else if(preg_match("/(sejarah|ekonomi)/", $cat))
+        return array("las la-landmark", "yellow");
+    else if(preg_match("/(bahasa)/", $cat))
+        return array("las la-language", "cyan");
+    else if(preg_match("/(komputer)/", $cat))
+        return array("las la-laptop-code", "black");
+    else if(preg_match("/(arsitektur)/", $cat))
+        return array("las la-building", "darkgrey");
+    else if(preg_match("/(seni|sastra)/", $cat))
+        return array("las la-paint-brush", "red");
+    else if(preg_match("/(agama|spiritual)/", $cat))
+        return array("las la-pray", "khaki");
+    else if(preg_match("/(matematika|akuntansi)/", $cat))
+        return array("las la-calculator", "lightgreen");
+    else if(preg_match("/(kimia|fisika)/", $cat))
+        return array("las la-atom", "darkblue");
+    else if(preg_match("/(kedokteran|psikologi|farmasi)/", $cat))
+        return array("las la-stethoscope", "darkgreen");
+    else 
+        return array("bi-globe", "black");
+}
 /**
  * Type 
  */

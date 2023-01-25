@@ -112,7 +112,7 @@ if (isset($_GET["search"]))
                             $total_question = $core->m->query("SELECT count(*) AS names FROM questions WHERE `username` LIKE " . $core->m->quote($user))->fetch()["names"];
                             $total_answer   = $core->getAnswerCountByUsername($user)[0]["total"];
                             $rank = getranks($total_voted_answer, $total_answer, $total_question);
-                            $ttl  = ($total_answer+$total_question) * ($total_voted_answer);
+                            $ttl  = ($total_answer + $total_question) * ($total_voted_answer);
                         ?>
                             <div class="ui_circular_wrapper mb-1">
                                 <div class="ui_circular_image-x30">
@@ -126,9 +126,10 @@ if (isset($_GET["search"]))
                             <span class="text-muted"><i class="las la-pen" style="font-size: 20px;color: red;"></i> <?= $total_answer ?> Jawaban</span><br>
                             <span class="text-muted"><i class="las la-comment" style="font-size: 20px;color: blue;"></i> <?= $core->m->query("SELECT count(*) AS names FROM comments WHERE `username` LIKE " . $core->m->quote($user))->fetch()["names"] ?> Komentar</span><br>
                             <span class="text-muted "><i class="lar la-question-circle" style="font-size: 20px;color: green;"></i> <?= $total_question ?> Pertanyaan</span>
-                            <br><br><div style="display: flex;"><b class="ml-2 p-2 text-dark" style="background-color:moccasin;border-radius: 10px;"><?= strtoupper($rank["category"]) ?>  <?= $rank["star"] ?></b> 
-                            <span class="p-2"><?= $ttl ?> points</span>
-                        </div>
+                            <br><br>
+                            <div style="display: flex;"><b class="ml-2 p-2 text-dark" style="background-color:moccasin;border-radius: 10px;"><?= strtoupper($rank["category"]) ?> <?= $rank["star"] ?></b>
+                                <span class="p-2"><?= $ttl ?> points</span>
+                            </div>
 
                         <?php
                         endif;
@@ -136,15 +137,14 @@ if (isset($_GET["search"]))
                         ?>
                     </div>
                 </div>
-                <div class="homepage-left-sidebar mt-1 shadow">
-                    📰
-                    <a href="/login/" class="text-muted sidebar-list">Baca blog kita disini</a><br>
-                    <span class="bi bi-megaphone"></span>
-                    <a href="/login/" class="text-muted sidebar-list">Ingin beriklan? baca cara beriklan disini</a><br>
-                    <span class="bi bi-book"></span>
-                    <a href="/login/" class="text-muted sidebar-list">Seorang pelajar? baca tentang tata tertib disini</a><br>
-                    <span class="bi bi-book"></span>
-                    <a href="/login/" class="text-muted sidebar-list">Seorang guru? baca tentang panduan untuk guru disini</a><br>
+                <div class="homepage-left-sidebar mt-1 shadow" style="height: 200px;overflow-y: scroll;">
+                    <center><h5>Mata pelajaran</h5></center>
+                   <?php
+                        foreach($categories as $val):
+                            $n = categorytoicon8($val);
+                   ?>
+                    <div  class="card-question mt-3" style="width: 100%"><i style="color: <?= $n[1]?>" class="<?= $n[0] ?>"></i><?= $val ?></div>
+                   <?php endforeach;  ?>
                 </div>
                 <div class="mt-1 shadow" style="border: 1px solid rgb(230, 230, 230);padding: 10px;background: white;border-radius: 6px;" id="ui_ranklist">
                     <p class="text-muted text-center h5">Top 5 User</p>

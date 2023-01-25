@@ -11,6 +11,7 @@ function navigationBar($user, $space = true){
     $login_button             = strlen($profile_image) > 0 ? "" : "<a style=\"float: right;\" class=\"btn btn-primary btn-sm lay_button_login\" href='/login'>Masuk</a>";
     $unreadNotificationsTotal = count($core->getUnreadNotifications($user)); 
     $space = $space ? '<div class="ui_navspace"></div>' : "";
+    $notification = $unreadNotificationsTotal > 0 ? "display: none;" : "display: none;";
     return <<<EOF
             <div class="fixed-top ui_navbar navbar-fixed-top" style="item-align: center;width: 100%;z-index:999;  box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);">
                 <img
@@ -38,7 +39,7 @@ function navigationBar($user, $space = true){
                 </span>
                 <span class='desktop-only' style="float: right;margin-right: 10px;"> <button class="position-relative ui_mobile_navigation-b ">
                     <h4 class="bi bi-bell"></h4>
-                    <span class="position-absolute translate-middle badge rounded-pill bg-danger" style="top: 10px;left: 23px;">
+                    <span class="position-absolute translate-middle badge rounded-pill bg-danger" style="top: 10px;left: 23px;$notification">
                     $unreadNotificationsTotal</span>
                       <span class="visually-hidden">unread messages</span>
                 </span></div>
