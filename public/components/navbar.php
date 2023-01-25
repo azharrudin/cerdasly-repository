@@ -48,9 +48,9 @@ function navigationBar($user, $space = true){
                     <button class="ui_mobile_navigation"><h4><a href="/" class="text-muted"><span class="bi bi-house-door"></span></a></h4></button>
                     <button class="ui_mobile_navigation"><h4><a  onclick="ui_ranklist()" class="text-muted"><span class="bi bi-trophy"></span></a></h4></button>
                     <button class="ui_mobile_navigation"><h4><a class="text-muted"><span class="bi bi-newspaper"></span></a></h4></button>
-                    <span> <button class="position-relative ui_mobile_navigation-b">
+                    <span> <button class="position-relative ui_mobile_navigation">
                     <h4 class="bi bi-bell"></h4>
-                    <span class="position-absolute translate-middle badge rounded-pill bg-danger" style="top: 10px;left: 23px;">
+                    <span class="position-absolute translate-middle badge rounded-pill bg-danger " style="top: 10px;left: 45px;">
                     $unreadNotificationsTotal
                     </span>
                     </button></span>
