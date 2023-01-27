@@ -33,7 +33,7 @@ $is_question_exist = isset($_GET["id"]) && $Core->getQuestion(trim($_GET["id"]))
 if ($is_question_exist == false) http_response_code(404);
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="id">
 
 <head>
     <title><?= strlen($question["title"]) == false ? "Pertanyaan tidak ditemukan" : substrwords(strip_tags($question["title"]), 10, true); ?></title>
@@ -144,9 +144,7 @@ if ($is_question_exist == false) http_response_code(404);
             margin-bottom: 10px;
         }
 
-        .side-left-height {
-            min-height: 150vh;
-        }
+        
 
         @media (max-width: 460px) and (min-width: 200px) {
             .side-left-height {
@@ -159,7 +157,7 @@ if ($is_question_exist == false) http_response_code(404);
 <body>
     <?= navigationBar(isset($user) ? $user : ""); ?>
     <div id="errorpopup" style="display: none"></div>
-    <div style="padding-top: 45px;" class="lay-mobile-only ">
+    <div style="padding-top: 45px;" class="lay-mobile-only " >
         <div class="ui_question_search">
             <div class="form-group " style="margin-bottom: 5px;">
                 <div class="input-group cps-input-group">
@@ -271,7 +269,7 @@ if ($is_question_exist == false) http_response_code(404);
             }
     ?>
 
-        <div class="side-left ui_question_layout_left_sidebar" style="border-radius: 6px;">
+        <div class="side-left ui_question_layout_left_sidebar" style="border-radius: 6px;" id="sideleft">
             <div id="ui_other_question">
                 <h4>Pertanyaan Baru</h4>
                 <?php
@@ -590,6 +588,7 @@ if ($is_question_exist == false) http_response_code(404);
         </footer>
 
         <script>
+            $('#sideright').css('height', $('#sideleft').height()+100+'px');
             $("#ui_mobile_only_other_question").html($("#ui_other_question").html())
             document.getElementById('attachment_remove').checked = true
             document.getElementById('ui_attachment').disabled = true
