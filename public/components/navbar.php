@@ -8,7 +8,7 @@ function navigationBar($user, $space = true){
     ? "<img onclick=\"window.location = '/profile/'\" src='$profile_image' height=35 style='border-radius: 100%;max-width: 35px;object-fit: cover;' loading='lazy'>" 
     : "";
     $profile_image_exist      = strlen($profile_image) > 0 ? "" : "display: none;";
-    $login_button             = strlen($profile_image) > 0 ? "" : "<a style=\"float: right;\" class=\"btn btn-primary btn-sm lay_button_login\" href='/login'>Masuk</a>";
+    $login_button             = strlen($profile_image) > 0 ? "" : "<a style=\"float: right;\" class=\"btn btn-primary btn-sm mt-1 lay_button_login\" href='/login'>Masuk</a>";
     $unreadNotificationsTotal = count($core->getUnreadNotifications($user)); 
     $space = $space ? '<div class="ui_navspace"></div>' : "";
     $notification = $unreadNotificationsTotal > 0 ? "display: none;" : "display: none;";
@@ -50,7 +50,7 @@ function navigationBar($user, $space = true){
                     <button class="ui_mobile_navigation"><h4><a class="text-muted"><span class="bi bi-newspaper"></span></a></h4></button>
                     <span> <button class="position-relative ui_mobile_navigation">
                     <h4 class="bi bi-bell"></h4>
-                    <span class="position-absolute translate-middle badge rounded-pill bg-danger " style="top: 10px;left: 45px;">
+                    <span class="position-absolute translate-middle badge rounded-pill bg-danger " style="top: 11px;left: 55px;">
                     $unreadNotificationsTotal
                     </span>
                     </button></span>
