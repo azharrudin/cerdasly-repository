@@ -342,9 +342,8 @@ class Core {
     function login($email, $password){
         $r = $this->m->query("SELECT password FROM users WHERE email = '$email'");
         if($this->emailExist($email)){
-            $ox = password_verify($password,$r->fetch()["password"]);
-            var_dump($ox);
-            $n = @password_verify($password,$r->fetch()["password"]) == 1;
+           
+            $n = password_verify($password,$r->fetch()["password"]);
             if($n)
                 return true;
             else 
