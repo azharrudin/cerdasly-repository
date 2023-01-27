@@ -15,7 +15,6 @@ if (isset($_POST["login_email"]) && isset($_POST["login_password"])) {
         setcookie("pass",  $_POST["login_password"]);
         
         header("location: /");
-        var_dump($_COOKIE);
     } else if ($core->login($_POST["login_email"], $_POST["login_password"])) {
         setcookie("email", trim($_POST["login_email"]));
         setcookie("pass",  $_POST["login_password"]);
