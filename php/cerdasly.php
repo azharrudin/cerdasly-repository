@@ -343,7 +343,7 @@ class Core {
         $r = $this->m->query("SELECT password FROM users WHERE email = '$email'");
         if($this->emailExist($email)){
            
-            $n = password_verify($password,$r->fetch()["password"]);
+            $n = @password_verify($password,$r->fetch()["password"]) == 1;
             if($n)
                 return true;
             else 
