@@ -10,18 +10,20 @@ if (isset($_GET["action"]) == "error") {
 
 if (isset($_POST["login_email"]) && isset($_POST["login_password"])) {
     $email = $core->getEmailByUsername($_POST["login_email"]);
-    if (!preg_match("/\@/", $_POST["login_email"]) && ($core->login($email, $_POST["login_password"]) != false)) {
+    if (!preg_match("/\@/", $_POST["login_email"]) && ($core->login($email, $_POST["login_password"]))) {
         setcookie("email",  $email);
         setcookie("pass",  $_POST["login_password"]);
-        var_dump($_COOKIE);
 
         header("location: /");
-    } else if ($core->login($_POST["login_email"], $_POST["login_password"]) != false) {
+    } else if ($core->login($_POST["login_email"], $_POST["login_password"])) {
         setcookie("email", trim($_POST["login_email"]));
         setcookie("pass",  $_POST["login_password"]);
         header("location: /");
     } else {
         $info_message = 'Tidak dapat masuk, coba cek kembali kata sandi dan email akun yang kamu gunakan';
+    }
+    if(!preg_match("/\@/", $_POST["login_email"]) && ($core->login($email, $_POST["login_password"]))){
+        var_dump($_COOKIE);
     }
 }
 ?>
