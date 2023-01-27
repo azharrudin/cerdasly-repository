@@ -183,7 +183,7 @@ function load_markdown($markdown)
         <a href="" class="link link-primary">›› Cara mengganti email dan password Akun jika lupa password Akun </a><br>
         <a href="" class="link link-primary">›› Cara menghapus Akun secara permanen</a><br><br>
         <h3 class="mb-0" >Privasi dan Keamanan</h3>
-        <h5 class="text-muted" style="border-bottom: 1px dotted grey;">cara bagaimana mengembalikan akun anda yang diretas</h5>
+        <h5 class="text-muted" style="border-bottom: 1px dotted grey;">informasi mengenai privasi dan keamanan akun anda</h5>
         <a href="" class="link link-primary">›› Cara mengganti informasi dasar Akun</a><br>
         <a href="" class="link link-primary">›› Cara mengganti email dan password Akun </a><br>
         <a href="" class="link link-primary">›› Cara mengganti email dan password Akun jika lupa password Akun </a><br>
