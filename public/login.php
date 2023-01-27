@@ -22,9 +22,7 @@ if (isset($_POST["login_email"]) && isset($_POST["login_password"])) {
     } else {
         $info_message = 'Tidak dapat masuk, coba cek kembali kata sandi dan email akun yang kamu gunakan';
     }
-    if(!preg_match("/\@/", $_POST["login_email"]) && ($core->login($email, $_POST["login_password"]))){
-        var_dump($_COOKIE);
-    }
+        var_dump(!preg_match("/\@/", $_POST["login_email"]) && ($core->login($email, $_POST["login_password"])));
 }
 ?>
 <html>
