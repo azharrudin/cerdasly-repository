@@ -111,6 +111,7 @@ if (isset($_GET["search"]))
                             $total_voted_answer   = $core->m->query("SELECT count(*) AS names FROM answers WHERE `username` LIKE " . $core->m->quote($user) . " AND `votes`>0")->fetch()["names"];
                             $total_question = $core->m->query("SELECT count(*) AS names FROM questions WHERE `username` LIKE " . $core->m->quote($user))->fetch()["names"];
                             $total_answer   = $core->getAnswerCountByUsername($user)[0]["total"];
+                            $total_voted_answer = intval($total_voted_answer) == 0 ? $total_voted_answer : 1;
                             $rank = getranks($total_voted_answer, $total_answer, $total_question);
                             $ttl  = (intval($total_answer) + intval($total_question)) * intval($total_voted_answer);
                         ?>
