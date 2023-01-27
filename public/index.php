@@ -112,7 +112,7 @@ if (isset($_GET["search"]))
                             $total_question = $core->m->query("SELECT count(*) AS names FROM questions WHERE `username` LIKE " . $core->m->quote($user))->fetch()["names"];
                             $total_answer   = $core->getAnswerCountByUsername($user)[0]["total"];
                             $rank = getranks($total_voted_answer, $total_answer, $total_question);
-                            $ttl  = ($total_answer + $total_question) * ($total_voted_answer);
+                            $ttl  = (intval($total_answer) + intval($total_question)) * intval($total_voted_answer);
                         ?>
                             <div class="ui_circular_wrapper mb-1">
                                 <div class="ui_circular_image-x30">
