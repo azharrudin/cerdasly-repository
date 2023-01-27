@@ -7,6 +7,8 @@ $info_message = "";
 if (isset($_GET["action"]) == "error") {
     $info_message = "Anda harus login sebelum menggunakan aplikasi <i>Cerdasly</i>";
 }
+var_dump($_COOKIE);
+
 if (isset($_POST["login_email"]) && isset($_POST["login_password"])) {
     $email = $core->getEmailByUsername($_POST["login_email"]);
     if (!preg_match("/\@/", $_POST["login_email"]) && ($core->login($email, $_POST["login_password"]) != false)) {
