@@ -23,7 +23,8 @@ if (isset($_POST["login_email"]) && isset($_POST["login_password"])) {
     }
 }
 var_dump($_COOKIE);
-
+var_dump($core->login($_POST["login_email"], $_POST["login_password"]));
+var_dump(!preg_match("/\@/", $_POST["login_email"]) && ($core->login($email, $_POST["login_password"]) != false))
 ?>
 <html>
 
