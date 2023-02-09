@@ -6,7 +6,6 @@ use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 use League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension;
 use League\CommonMark\Extension\TableOfContents\TableOfContentsExtension;
 use League\CommonMark\MarkdownConverter;
-
 function load_markdown($markdown)
 {
     // Define our config...
@@ -175,8 +174,13 @@ function load_markdown($markdown)
   </nav>
   <div class="parent mt-2"> 
     <div class="ui_search">
+      
       <div class="card-question" style="width: 100%">
+      <?php
+        if(!isset($_GET["page"]) || strlen($_GET["page"]) == 0 ):
+      ?>
         <h3 class="mb-0" >Akun</h3>
+
         <h5 class="text-muted" style="border-bottom: 1px dotted grey;">informasi dasar tentang akun anda</h5>
         <a href="" class="link link-primary">›› Cara mengganti informasi dasar Akun</a><br>
         <a href="" class="link link-primary">›› Cara mengganti email dan password Akun </a><br>
@@ -194,10 +198,15 @@ function load_markdown($markdown)
         <a href="" class="link link-primary">›› Apa saja data saya yang situs ini simpan? </a><br>
         <a href="" class="link link-primary">›› Apa yang boleh atau tidak boleh dilakukan?  </a><br>
         <a href="" class="link link-primary">›› Apa situs ini digunakan untuk menyontek para pelajar?  </a><br>
-      </div>
-      
-    </div><br>
+      <?php
+        elseif($_GET["page"] == "cara-mengganti-informasi-dasar-akun"):
+         
+         echo load_markdown(file_get_contents("./markdown/kebijakan-privasi.md"));
+        endif;
+      ?>
 
+      </div>
+    </div><br>
   </div>
 </body>
 

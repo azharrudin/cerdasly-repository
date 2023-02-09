@@ -1,1 +1,10 @@
-Kebijakan Privasi Cerdasly ini (“Kebijakan Privasi”) menjelaskan kebijakan dan prosedur kami tentang pengumpulan, penggunaan, pengungkapan, dan pembagian informasi pribadi Anda ketika Anda menggunakan Platform Cerdasly. Kebijakan Privasi ini berlaku untuk aktivitas oleh Quora, Inc. dan afiliasi serta anak perusahaannya (secara bersama-sama disebut "Cerdasly", "kami", atau "kami"). Istilah-istilah dengan huruf kapital yang tidak didefinisikan dalam Kebijakan Privasi ini memiliki arti yang diberikan kepadanya dalam Ketentuan Layanan kami. Quora Inc. adalah pengontrol data informasi pribadi Anda dan bertanggung jawab untuk menyediakan Kebijakan Privasi ini kepada Anda.
+#### Mengubah nama akun
+buka profil ›› klik titik tiga kanan bawah ›› ketik nama baru dikolom nama ›› klik save
+_catatan: perubahan nama tidak dibatasi waktu_<br>
+
+#### Mengubah deskripsi akun
+buka profil ›› klik titik tiga kanan bawah ›› ketik nama baru dikolom deskripsi ›› klik save
+_catatan: perubahan deskripsi tidak dibatasi waktu_
+
+#### Mengubah username akun
+Untuk perubahan username kamu dapat mengubungi **contact@cerdasly.com** 

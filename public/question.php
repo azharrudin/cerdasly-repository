@@ -57,7 +57,6 @@ if ($is_question_exist == false) http_response_code(404);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
     <script src="/js/clipper.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6098201334142651" crossorigin="anonymous"></script>
     <script>
         const Popup = Swal.mixin({
@@ -377,7 +376,6 @@ if ($is_question_exist == false) http_response_code(404);
                         Belum ada jawaban, jadilah yang pertama
                     </div>
                     <div class="container">
-
                         <?php else :
                         foreach ($Core->getAnswers($v["id"]) as $m) :
                             $answererRealname = $Core->getRealnameByUsername($m["username"]);
@@ -424,8 +422,6 @@ if ($is_question_exist == false) http_response_code(404);
                                     if ($m["attachment"] != "none") :
                                         $answer_attachment_type = strtolower(pathinfo($m["attachment"], PATHINFO_EXTENSION));
                                         $answer_attachment_file = substr($m["attachment"], 0, strlen($m["attachment"]));
-
-
                                         ?>
                                         <center>
                                             <?php
@@ -752,6 +748,7 @@ if ($is_question_exist == false) http_response_code(404);
                         $(voteform).parent().parent().animate({
                             opacity: 0.5
                         }, 100);
+                
                         $.ajax({
                             url: $(voteform).attr("action"),
                             type: $(voteform).attr("method"),
