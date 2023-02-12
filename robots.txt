@@ -6,4 +6,6 @@ Disallow: /comments/
 Disallow: /notifications/
 Disallow: /ask
 Disallow: /styles/
+Disallow: /vendor/
+Disallow: /config/
 Sitemap: https://cerdasly.com/sitemap.xml
