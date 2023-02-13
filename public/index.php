@@ -75,6 +75,11 @@ endif;
         .ui_ocr_preview {
             max-width: 30vw;
         }
+        .ui_side_left {
+            position: fixed;
+            ;z-index: 999;
+            width: 17%;
+        }
     </style>
 </head>
 <?php
@@ -94,7 +99,7 @@ if (isset($_GET["search"]))
     <?= navigationBar(isset($user) ? $user : ""); ?>
     <div class="body">
         <div class="side-left mt-3">
-            <div style="position: fixed;z-index: 999;width: 17%" id="ui_side_left">
+            <div id="ui_side_left" class="ui_side_Left">
                 <div class="homepage-left-sidebar shadow">
                     <div id="ui_userinfo">
 
